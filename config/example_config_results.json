@@ -1,0 +1,1202 @@
+[
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 12,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 6.0,
+          "addendum_diameter_mm": 7.0,
+          "face_width_mm": 3.580379520229144,
+          "lewis_stress_mpa": 380.0,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0010816448390649068
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 23,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 11.5,
+          "addendum_diameter_mm": 12.5,
+          "face_width_mm": 3.580379520229144,
+          "lewis_stress_mpa": 279.1604197901049,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.00344912257354881
+        },
+        "stage_ratio": 1.9166666666666667,
+        "mesh_efficiency": 0.9800804813631082,
+        "stage_torque_in_nm": 0.5
+      },
+      {
+        "stage_number": 2,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 13,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 6.5,
+          "addendum_diameter_mm": 7.5,
+          "face_width_mm": 5.878624299676931,
+          "lewis_stress_mpa": 380.00000000000006,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.002038720877826665
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 33,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 16.5,
+          "addendum_diameter_mm": 17.5,
+          "face_width_mm": 5.878624299676931,
+          "lewis_stress_mpa": 273.3514986376022,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.01109970255705629
+        },
+        "stage_ratio": 2.5384615384615383,
+        "mesh_efficiency": 0.9831569624632716,
+        "stage_torque_in_nm": 0.9583333333333334
+      }
+    ],
+    "total_ratio": 4.865384615384615,
+    "ratio_error_pct": -2.6923076923077005,
+    "total_efficiency": 0.9635729490264945,
+    "total_weight_kg": 0.01766919084749667,
+    "ranking_tag": "weight"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 13,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 5.2,
+          "addendum_diameter_mm": 6.0,
+          "face_width_mm": 4.792356766040975,
+          "lewis_stress_mpa": 380.0000000000001,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.001063680457996521
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 25,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 10.0,
+          "addendum_diameter_mm": 10.8,
+          "face_width_mm": 4.792356766040975,
+          "lewis_stress_mpa": 294.62555066079307,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0034463246839087284
+        },
+        "stage_ratio": 1.9230769230769231,
+        "mesh_efficiency": 0.9816337660251674,
+        "stage_torque_in_nm": 0.5
+      },
+      {
+        "stage_number": 2,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 13,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 6.5,
+          "addendum_diameter_mm": 7.5,
+          "face_width_mm": 5.898285250511971,
+          "lewis_stress_mpa": 380.0,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.002045539342301002
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 33,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 16.5,
+          "addendum_diameter_mm": 17.5,
+          "face_width_mm": 5.898285250511971,
+          "lewis_stress_mpa": 273.35149863760216,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.011136825308083236
+        },
+        "stage_ratio": 2.5384615384615383,
+        "mesh_efficiency": 0.9831569624632716,
+        "stage_torque_in_nm": 0.9615384615384616
+      }
+    ],
+    "total_ratio": 4.881656804733728,
+    "ratio_error_pct": -2.366863905325438,
+    "total_efficiency": 0.9651000716566854,
+    "total_weight_kg": 0.017692369792289487,
+    "ranking_tag": "weight"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 12,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 6.0,
+          "addendum_diameter_mm": 7.0,
+          "face_width_mm": 3.580379520229144,
+          "lewis_stress_mpa": 380.0,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0010816448390649068
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 25,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 12.5,
+          "addendum_diameter_mm": 13.5,
+          "face_width_mm": 3.580379520229144,
+          "lewis_stress_mpa": 273.4214390602056,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.004023056569787332
+        },
+        "stage_ratio": 2.0833333333333335,
+        "mesh_efficiency": 0.9806268453028629,
+        "stage_torque_in_nm": 0.5
+      },
+      {
+        "stage_number": 2,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 12,
+          "module": 0.6,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 7.199999999999999,
+          "addendum_diameter_mm": 8.4,
+          "face_width_mm": 5.179947222553738,
+          "lewis_stress_mpa": 380.0000000000001,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0022534267480518897
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 28,
+          "module": 0.6,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 16.8,
+          "addendum_diameter_mm": 18.0,
+          "face_width_mm": 5.179947222553738,
+          "lewis_stress_mpa": 264.4886363636365,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.01034736772064643
+        },
+        "stage_ratio": 2.3333333333333335,
+        "mesh_efficiency": 0.9813000437286322,
+        "stage_torque_in_nm": 1.0416666666666667
+      }
+    ],
+    "total_ratio": 4.861111111111112,
+    "ratio_error_pct": -2.777777777777768,
+    "total_efficiency": 0.9622891661771701,
+    "total_weight_kg": 0.017705495877550555,
+    "ranking_tag": "weight"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 14,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 5.6000000000000005,
+          "addendum_diameter_mm": 6.4,
+          "face_width_mm": 4.256565326359375,
+          "lewis_stress_mpa": 380.00000000000006,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0010749265481390376
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 26,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 10.4,
+          "addendum_diameter_mm": 11.200000000000001,
+          "face_width_mm": 4.256565326359375,
+          "lewis_stress_mpa": 304.88372093023264,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.003291962553675804
+        },
+        "stage_ratio": 1.8571428571428572,
+        "mesh_efficiency": 0.9827385019033528,
+        "stage_torque_in_nm": 0.5
+      },
+      {
+        "stage_number": 2,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 13,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 6.5,
+          "addendum_diameter_mm": 7.5,
+          "face_width_mm": 5.6960583276372745,
+          "lewis_stress_mpa": 380.00000000000006,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0019754065648506817
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 34,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 17.0,
+          "addendum_diameter_mm": 18.0,
+          "face_width_mm": 5.6960583276372745,
+          "lewis_stress_mpa": 271.1351351351352,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.011378341813539928
+        },
+        "stage_ratio": 2.6153846153846154,
+        "mesh_efficiency": 0.9832969621358914,
+        "stage_torque_in_nm": 0.9285714285714286
+      }
+    ],
+    "total_ratio": 4.857142857142858,
+    "ratio_error_pct": -2.857142857142847,
+    "total_efficiency": 0.9663237834955437,
+    "total_weight_kg": 0.01772063748020545,
+    "ranking_tag": "weight"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 13,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 5.2,
+          "addendum_diameter_mm": 6.0,
+          "face_width_mm": 4.792356766040975,
+          "lewis_stress_mpa": 380.0000000000001,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.001063680457996521
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 26,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 10.4,
+          "addendum_diameter_mm": 11.200000000000001,
+          "face_width_mm": 4.792356766040975,
+          "lewis_stress_mpa": 291.62790697674427,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.003706335462530101
+        },
+        "stage_ratio": 2.0,
+        "mesh_efficiency": 0.9818754269985204,
+        "stage_torque_in_nm": 0.5
+      },
+      {
+        "stage_number": 2,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 14,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 7.0,
+          "addendum_diameter_mm": 8.0,
+          "face_width_mm": 5.448403617740001,
+          "lewis_stress_mpa": 380.00000000000006,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.002149853096278075
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 34,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 17.0,
+          "addendum_diameter_mm": 18.0,
+          "face_width_mm": 5.448403617740001,
+          "lewis_stress_mpa": 283.45945945945954,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.010883631299907756
+        },
+        "stage_ratio": 2.4285714285714284,
+        "mesh_efficiency": 0.9841600370407237,
+        "stage_torque_in_nm": 1.0
+      }
+    ],
+    "total_ratio": 4.857142857142857,
+    "ratio_error_pct": -2.8571428571428648,
+    "total_efficiency": 0.9663225566042403,
+    "total_weight_kg": 0.017803500316712455,
+    "ranking_tag": "weight"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 12,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 6.0,
+          "addendum_diameter_mm": 7.0,
+          "face_width_mm": 3.580379520229144,
+          "lewis_stress_mpa": 380.0,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0010816448390649068
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 26,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 13.0,
+          "addendum_diameter_mm": 14.0,
+          "face_width_mm": 3.580379520229144,
+          "lewis_stress_mpa": 270.63953488372096,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.004326579356259627
+        },
+        "stage_ratio": 2.1666666666666665,
+        "mesh_efficiency": 0.980868506276216,
+        "stage_torque_in_nm": 0.5
+      },
+      {
+        "stage_number": 2,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 12,
+          "module": 0.6,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 7.199999999999999,
+          "addendum_diameter_mm": 8.4,
+          "face_width_mm": 5.3871451114558875,
+          "lewis_stress_mpa": 380.00000000000006,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.002343563817973965
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 27,
+          "module": 0.6,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 16.2,
+          "addendum_diameter_mm": 17.4,
+          "face_width_mm": 5.3871451114558875,
+          "lewis_stress_mpa": 267.528735632184,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0100558018924291
+        },
+        "stage_ratio": 2.25,
+        "mesh_efficiency": 0.9810922664367281,
+        "stage_torque_in_nm": 1.0833333333333333
+      }
+    ],
+    "total_ratio": 4.875,
+    "ratio_error_pct": -2.5,
+    "total_efficiency": 0.9623225058989409,
+    "total_weight_kg": 0.0178075899057276,
+    "ranking_tag": "weight"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 14,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 5.6000000000000005,
+          "addendum_diameter_mm": 6.4,
+          "face_width_mm": 4.256565326359375,
+          "lewis_stress_mpa": 380.00000000000006,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0010749265481390376
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 27,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 10.8,
+          "addendum_diameter_mm": 11.600000000000001,
+          "face_width_mm": 4.256565326359375,
+          "lewis_stress_mpa": 301.3793103448277,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0035313016679098855
+        },
+        "stage_ratio": 1.9285714285714286,
+        "mesh_efficiency": 0.9829622620638648,
+        "stage_torque_in_nm": 0.5
+      },
+      {
+        "stage_number": 2,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 13,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 6.5,
+          "addendum_diameter_mm": 7.5,
+          "face_width_mm": 5.9151374940848624,
+          "lewis_stress_mpa": 380.0,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.002051383740421862
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 33,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 16.5,
+          "addendum_diameter_mm": 17.5,
+          "face_width_mm": 5.9151374940848624,
+          "lewis_stress_mpa": 273.35149863760216,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.011168644808963473
+        },
+        "stage_ratio": 2.5384615384615383,
+        "mesh_efficiency": 0.9831569624632716,
+        "stage_torque_in_nm": 0.9642857142857143
+      }
+    ],
+    "total_ratio": 4.895604395604395,
+    "ratio_error_pct": -2.0879120879120983,
+    "total_efficiency": 0.9664061917867357,
+    "total_weight_kg": 0.017826256765434256,
+    "ranking_tag": "weight"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 13,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 5.2,
+          "addendum_diameter_mm": 6.0,
+          "face_width_mm": 4.792356766040975,
+          "lewis_stress_mpa": 380.0000000000001,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.001063680457996521
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 26,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 10.4,
+          "addendum_diameter_mm": 11.200000000000001,
+          "face_width_mm": 4.792356766040975,
+          "lewis_stress_mpa": 291.62790697674427,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.003706335462530101
+        },
+        "stage_ratio": 2.0,
+        "mesh_efficiency": 0.9818754269985204,
+        "stage_torque_in_nm": 0.5
+      },
+      {
+        "stage_number": 2,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 13,
+          "module": 0.6,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 7.8,
+          "addendum_diameter_mm": 9.0,
+          "face_width_mm": 4.259872680925312,
+          "lewis_stress_mpa": 380.00000000000006,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.002127360915993042
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 32,
+          "module": 0.6,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 19.2,
+          "addendum_diameter_mm": 20.4,
+          "face_width_mm": 4.259872680925312,
+          "lewis_stress_mpa": 275.6043956043957,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.010929907639502029
+        },
+        "stage_ratio": 2.4615384615384617,
+        "mesh_efficiency": 0.983008212811113,
+        "stage_torque_in_nm": 1.0
+      }
+    ],
+    "total_ratio": 4.923076923076923,
+    "ratio_error_pct": -1.538461538461533,
+    "total_efficiency": 0.9651916086969639,
+    "total_weight_kg": 0.017827284476021693,
+    "ranking_tag": "weight"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 15,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 6.0,
+          "addendum_diameter_mm": 6.800000000000001,
+          "face_width_mm": 3.794087294360468,
+          "lewis_stress_mpa": 380.0,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0010816448390649068
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 28,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 11.200000000000001,
+          "addendum_diameter_mm": 12.0,
+          "face_width_mm": 3.794087294360468,
+          "lewis_stress_mpa": 311.9886363636363,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.003368444135496249
+        },
+        "stage_ratio": 1.8666666666666667,
+        "mesh_efficiency": 0.9839180376066237,
+        "stage_torque_in_nm": 0.5
+      },
+      {
+        "stage_number": 2,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 13,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 6.5,
+          "addendum_diameter_mm": 7.5,
+          "face_width_mm": 5.725268883163619,
+          "lewis_stress_mpa": 380.00000000000006,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.001985536854926839
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 34,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 17.0,
+          "addendum_diameter_mm": 18.0,
+          "face_width_mm": 5.725268883163619,
+          "lewis_stress_mpa": 271.13513513513516,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.011436692284378592
+        },
+        "stage_ratio": 2.6153846153846154,
+        "mesh_efficiency": 0.9832969621358914,
+        "stage_torque_in_nm": 0.9333333333333333
+      }
+    ],
+    "total_ratio": 4.8820512820512825,
+    "ratio_error_pct": -2.3589743589743506,
+    "total_efficiency": 0.9674836173693008,
+    "total_weight_kg": 0.017872318113866588,
+    "ranking_tag": "weight"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 13,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 5.2,
+          "addendum_diameter_mm": 6.0,
+          "face_width_mm": 4.792356766040975,
+          "lewis_stress_mpa": 380.0000000000001,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.001063680457996521
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 23,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 9.200000000000001,
+          "addendum_diameter_mm": 10.0,
+          "face_width_mm": 4.792356766040975,
+          "lewis_stress_mpa": 300.8095952023989,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0029546679388792246
+        },
+        "stage_ratio": 1.7692307692307692,
+        "mesh_efficiency": 0.9810874020854126,
+        "stage_torque_in_nm": 0.5
+      },
+      {
+        "stage_number": 2,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 12,
+          "module": 0.6,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 7.199999999999999,
+          "addendum_diameter_mm": 8.4,
+          "face_width_mm": 4.398970564384098,
+          "lewis_stress_mpa": 380.00000000000006,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.001913679330653297
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 33,
+          "module": 0.6,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 19.8,
+          "addendum_diameter_mm": 21.0,
+          "face_width_mm": 4.398970564384098,
+          "lewis_stress_mpa": 253.67847411444149,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.011960495816583105
+        },
+        "stage_ratio": 2.75,
+        "mesh_efficiency": 0.9821500417409671,
+        "stage_torque_in_nm": 0.8846153846153846
+      }
+    ],
+    "total_ratio": 4.865384615384615,
+    "ratio_error_pct": -2.6923076923077005,
+    "total_efficiency": 0.9635750329097249,
+    "total_weight_kg": 0.017892523544112148,
+    "ranking_tag": "weight"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 20,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 8.0,
+          "addendum_diameter_mm": 8.8,
+          "face_width_mm": 2.569901315789473,
+          "lewis_stress_mpa": 380.0000000000001,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0012269908643142535
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 100,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 40.0,
+          "addendum_diameter_mm": 40.800000000000004,
+          "face_width_mm": 2.569901315789473,
+          "lewis_stress_mpa": 272.645739910314,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.026375233372573335
+        },
+        "stage_ratio": 5.0,
+        "mesh_efficiency": 0.9905752220392307,
+        "stage_torque_in_nm": 0.5
+      }
+    ],
+    "total_ratio": 5.0,
+    "ratio_error_pct": 0.0,
+    "total_efficiency": 0.9905752220392307,
+    "total_weight_kg": 0.027602224236887588,
+    "ranking_tag": "efficiency"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 20,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 8.0,
+          "addendum_diameter_mm": 8.8,
+          "face_width_mm": 2.569901315789473,
+          "lewis_stress_mpa": 380.0000000000001,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0012269908643142535
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 99,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 39.6,
+          "addendum_diameter_mm": 40.400000000000006,
+          "face_width_mm": 2.569901315789473,
+          "lewis_stress_mpa": 272.89048473967694,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.025860607038986985
+        },
+        "stage_ratio": 4.95,
+        "mesh_efficiency": 0.990559355409667,
+        "stage_torque_in_nm": 0.5
+      }
+    ],
+    "total_ratio": 4.95,
+    "ratio_error_pct": -0.9999999999999963,
+    "total_efficiency": 0.990559355409667,
+    "total_weight_kg": 0.027087597903301237,
+    "ranking_tag": "efficiency"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 20,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 8.0,
+          "addendum_diameter_mm": 8.8,
+          "face_width_mm": 2.569901315789473,
+          "lewis_stress_mpa": 380.0000000000001,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0012269908643142535
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 98,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 39.2,
+          "addendum_diameter_mm": 40.0,
+          "face_width_mm": 2.569901315789473,
+          "lewis_stress_mpa": 273.13566936208457,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.025351050915583748
+        },
+        "stage_ratio": 4.9,
+        "mesh_efficiency": 0.9905431649713369,
+        "stage_torque_in_nm": 0.5
+      }
+    ],
+    "total_ratio": 4.9,
+    "ratio_error_pct": -1.9999999999999927,
+    "total_efficiency": 0.9905431649713369,
+    "total_weight_kg": 0.026578041779898,
+    "ranking_tag": "efficiency"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 20,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 8.0,
+          "addendum_diameter_mm": 8.8,
+          "face_width_mm": 2.569901315789473,
+          "lewis_stress_mpa": 380.0000000000001,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0012269908643142535
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 97,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 38.800000000000004,
+          "addendum_diameter_mm": 39.6,
+          "face_width_mm": 2.569901315789473,
+          "lewis_stress_mpa": 273.3812949640288,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.024846565002363635
+        },
+        "stage_ratio": 4.85,
+        "mesh_efficiency": 0.9905266407095359,
+        "stage_torque_in_nm": 0.5
+      }
+    ],
+    "total_ratio": 4.85,
+    "ratio_error_pct": -3.000000000000007,
+    "total_efficiency": 0.9905266407095359,
+    "total_weight_kg": 0.026073555866677887,
+    "ranking_tag": "efficiency"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 19,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 7.6000000000000005,
+          "addendum_diameter_mm": 8.4,
+          "face_width_mm": 2.7568502214302093,
+          "lewis_stress_mpa": 380.00000000000006,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0011993095223624469
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 97,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 38.800000000000004,
+          "addendum_diameter_mm": 39.6,
+          "face_width_mm": 2.7568502214302093,
+          "lewis_stress_mpa": 268.25539568345323,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.026654042241891933
+        },
+        "stage_ratio": 5.105263157894737,
+        "mesh_efficiency": 0.9901132732551162,
+        "stage_torque_in_nm": 0.5
+      }
+    ],
+    "total_ratio": 5.105263157894737,
+    "ratio_error_pct": 2.1052631578947434,
+    "total_efficiency": 0.9901132732551162,
+    "total_weight_kg": 0.02785335176425438,
+    "ranking_tag": "efficiency"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 19,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 7.6000000000000005,
+          "addendum_diameter_mm": 8.4,
+          "face_width_mm": 2.7568502214302093,
+          "lewis_stress_mpa": 380.00000000000006,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0011993095223624469
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 96,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 38.400000000000006,
+          "addendum_diameter_mm": 39.2,
+          "face_width_mm": 2.7568502214302093,
+          "lewis_stress_mpa": 268.49684968496854,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.026118296264782178
+        },
+        "stage_ratio": 5.052631578947368,
+        "mesh_efficiency": 0.9900964047378611,
+        "stage_torque_in_nm": 0.5
+      }
+    ],
+    "total_ratio": 5.052631578947368,
+    "ratio_error_pct": 1.0526315789473628,
+    "total_efficiency": 0.9900964047378611,
+    "total_weight_kg": 0.027317605787144626,
+    "ranking_tag": "efficiency"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 14,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 5.6000000000000005,
+          "addendum_diameter_mm": 6.4,
+          "face_width_mm": 4.256565326359375,
+          "lewis_stress_mpa": 380.00000000000006,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0010749265481390376
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 29,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 11.600000000000001,
+          "addendum_diameter_mm": 12.4,
+          "face_width_mm": 4.256565326359375,
+          "lewis_stress_mpa": 295.43661971830994,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.004035173487350058
+        },
+        "stage_ratio": 2.0714285714285716,
+        "mesh_efficiency": 0.9833634871792659,
+        "stage_torque_in_nm": 0.5
+      },
+      {
+        "stage_number": 2,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 14,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 7.0,
+          "addendum_diameter_mm": 8.0,
+          "face_width_mm": 5.642989461230716,
+          "lewis_stress_mpa": 380.00000000000006,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0022266335640022923
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 33,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 16.5,
+          "addendum_diameter_mm": 17.5,
+          "face_width_mm": 5.642989461230716,
+          "lewis_stress_mpa": 285.77656675749324,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.010654789515245346
+        },
+        "stage_ratio": 2.357142857142857,
+        "mesh_efficiency": 0.9840200373681038,
+        "stage_torque_in_nm": 1.0357142857142858
+      }
+    ],
+    "total_ratio": 4.882653061224491,
+    "ratio_error_pct": -2.3469387755101856,
+    "total_efficiency": 0.9676493754005702,
+    "total_weight_kg": 0.017991523114736736,
+    "ranking_tag": "efficiency"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 15,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 6.0,
+          "addendum_diameter_mm": 6.800000000000001,
+          "face_width_mm": 3.794087294360468,
+          "lewis_stress_mpa": 380.0,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0010816448390649068
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 31,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 12.4,
+          "addendum_diameter_mm": 13.200000000000001,
+          "face_width_mm": 3.794087294360468,
+          "lewis_stress_mpa": 304.2105263157895,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.004075817403950462
+        },
+        "stage_ratio": 2.066666666666667,
+        "mesh_efficiency": 0.9844609395628892,
+        "stage_torque_in_nm": 0.5
+      },
+      {
+        "stage_number": 2,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 13,
+          "module": 0.6,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 7.8,
+          "addendum_diameter_mm": 9.0,
+          "face_width_mm": 4.401868436956157,
+          "lewis_stress_mpa": 380.0,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0021982729465261437
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 31,
+          "module": 0.6,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 18.599999999999998,
+          "addendum_diameter_mm": 19.8,
+          "face_width_mm": 4.401868436956157,
+          "lewis_stress_mpa": 277.89473684210526,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.010639641061186539
+        },
+        "stage_ratio": 2.3846153846153846,
+        "mesh_efficiency": 0.9828498664072021,
+        "stage_torque_in_nm": 1.0333333333333334
+      }
+    ],
+    "total_ratio": 4.9282051282051285,
+    "ratio_error_pct": -1.4358974358974308,
+    "total_efficiency": 0.9675773029324942,
+    "total_weight_kg": 0.01799537625072805,
+    "ranking_tag": "efficiency"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 15,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 6.0,
+          "addendum_diameter_mm": 6.800000000000001,
+          "face_width_mm": 3.794087294360468,
+          "lewis_stress_mpa": 380.0,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0010816448390649068
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 32,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 12.8,
+          "addendum_diameter_mm": 13.600000000000001,
+          "face_width_mm": 3.794087294360468,
+          "lewis_stress_mpa": 301.7032967032967,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.004326579356259627
+        },
+        "stage_ratio": 2.1333333333333333,
+        "mesh_efficiency": 0.9846192859667999,
+        "stage_torque_in_nm": 0.5
+      },
+      {
+        "stage_number": 2,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 13,
+          "module": 0.6,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 7.8,
+          "addendum_diameter_mm": 9.0,
+          "face_width_mm": 4.543864192987,
+          "lewis_stress_mpa": 380.00000000000006,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0022691849770592448
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 30,
+          "module": 0.6,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 18.0,
+          "addendum_diameter_mm": 19.2,
+          "face_width_mm": 4.543864192987,
+          "lewis_stress_mpa": 280.22346368715085,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.010327312962260738
+        },
+        "stage_ratio": 2.3076923076923075,
+        "mesh_efficiency": 0.9826809635763639,
+        "stage_torque_in_nm": 1.0666666666666667
+      }
+    ],
+    "total_ratio": 4.9230769230769225,
+    "ratio_error_pct": -1.5384615384615508,
+    "total_efficiency": 0.9675666286897263,
+    "total_weight_kg": 0.01800472213464452,
+    "ranking_tag": "efficiency"
+  },
+  {
+    "stages": [
+      {
+        "stage_number": 1,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 15,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 6.0,
+          "addendum_diameter_mm": 6.800000000000001,
+          "face_width_mm": 3.794087294360468,
+          "lewis_stress_mpa": 380.0,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0010816448390649068
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 29,
+          "module": 0.4,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 11.600000000000001,
+          "addendum_diameter_mm": 12.4,
+          "face_width_mm": 3.794087294360468,
+          "lewis_stress_mpa": 309.3521126760563,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.0035967497935687725
+        },
+        "stage_ratio": 1.9333333333333333,
+        "mesh_efficiency": 0.9841114854301206,
+        "stage_torque_in_nm": 0.5
+      },
+      {
+        "stage_number": 2,
+        "pinion": {
+          "role": "pinion",
+          "teeth": 13,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 6.5,
+          "addendum_diameter_mm": 7.5,
+          "face_width_mm": 5.929742771848034,
+          "lewis_stress_mpa": 380.00000000000006,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.002056448885459941
+        },
+        "wheel": {
+          "role": "wheel",
+          "teeth": 33,
+          "module": 0.5,
+          "material": "steel_hardened",
+          "pitch_diameter_mm": 16.5,
+          "addendum_diameter_mm": 17.5,
+          "face_width_mm": 5.929742771848034,
+          "lewis_stress_mpa": 273.3514986376022,
+          "allowable_stress_mpa": 380.0,
+          "weight_kg": 0.011196221709726345
+        },
+        "stage_ratio": 2.5384615384615383,
+        "mesh_efficiency": 0.9831569624632716,
+        "stage_torque_in_nm": 0.9666666666666667
+      }
+    ],
+    "total_ratio": 4.907692307692307,
+    "ratio_error_pct": -1.8461538461538574,
+    "total_efficiency": 0.9675360587406955,
+    "total_weight_kg": 0.017931065227819964,
+    "ranking_tag": "efficiency"
+  }
+]
