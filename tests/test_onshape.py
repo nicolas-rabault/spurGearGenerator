@@ -171,12 +171,12 @@ class TestBuildVariables:
     def test_single_stage_count(self):
         sol = _make_solution(1)
         variables = build_variables(sol)
-        assert len(variables) == 11
+        assert len(variables) == 13
 
     def test_multi_stage_count(self):
         sol = _make_solution(3)
         variables = build_variables(sol)
-        assert len(variables) == 33
+        assert len(variables) == 39
 
     def test_variable_names(self):
         sol = _make_solution(1)
@@ -184,8 +184,8 @@ class TestBuildVariables:
         names = [v["name"] for v in variables]
         expected = [
             "s1_depth", "s1_m", "s1_p", "s1_backlash", "s1_center_dist",
-            "s1p_z", "s1p_dedendum", "s1p_addendum",
-            "s1w_z", "s1w_dedendum", "s1w_addendum",
+            "s1p_z", "s1p_dedendum", "s1p_addendum", "s1p_tip_diameter",
+            "s1w_z", "s1w_dedendum", "s1w_addendum", "s1w_tip_diameter",
         ]
         assert names == expected
 
@@ -212,7 +212,9 @@ class TestBuildVariables:
         assert by_name["s1p_z"]["type"] == "NUMBER"
         assert by_name["s1w_z"]["type"] == "NUMBER"
         assert by_name["s1p_dedendum"]["type"] == "NUMBER"
+        assert by_name["s1p_tip_diameter"]["type"] == "LENGTH"
         assert by_name["s1w_addendum"]["type"] == "NUMBER"
+        assert by_name["s1w_tip_diameter"]["type"] == "LENGTH"
 
     def test_variable_expressions(self):
         sol = _make_solution(1)
@@ -226,7 +228,9 @@ class TestBuildVariables:
         assert by_name["s1p_z"]["expression"] == "15"
         assert by_name["s1w_z"]["expression"] == "30"
         assert by_name["s1p_dedendum"]["expression"] == "1.1273"
+        assert by_name["s1p_tip_diameter"]["expression"] == "17.0 mm"  # module * (teeth + 2) = 1.0 * 17
         assert by_name["s1w_addendum"]["expression"] == "0.999"
+        assert by_name["s1w_tip_diameter"]["expression"] == "32.0 mm"  # module * (teeth + 2) = 1.0 * 32
 
     def test_no_geometry_defaults(self):
         """When geometry is None, use default pressure angle and zero backlash."""
@@ -341,7 +345,7 @@ class TestPushToOnshape:
 
         # Verify correct number of variables
         posted_vars = mock_set.call_args[0][-1]  # last positional arg
-        assert len(posted_vars) == 22  # 2 stages * 11 vars
+        assert len(posted_vars) == 26  # 2 stages * 13 vars
 
     @patch("spurGearGenerator.onshape.validate_onshape_env")
     def test_env_validation_failure(self, mock_env):

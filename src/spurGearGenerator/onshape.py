@@ -206,6 +206,12 @@ def build_variables(solution: GearboxSolution) -> list[dict]:
             "expression": str(stage.pinion.addendum_coeff or 1.0),
             "description": f"Stage {n} pinion addendum coefficient",
         })
+        variables.append({
+            "name": f"{prefix}p_tip_diameter",
+            "type": "LENGTH",
+            "expression": f"{stage.pinion.addendum_diameter_mm} mm",
+            "description": f"Stage {n} pinion tip diameter",
+        })
 
         # Wheel parameters
         variables.append({
@@ -225,6 +231,12 @@ def build_variables(solution: GearboxSolution) -> list[dict]:
             "type": "NUMBER",
             "expression": str(stage.wheel.addendum_coeff or 1.0),
             "description": f"Stage {n} wheel addendum coefficient",
+        })
+        variables.append({
+            "name": f"{prefix}w_tip_diameter",
+            "type": "LENGTH",
+            "expression": f"{stage.wheel.addendum_diameter_mm} mm",
+            "description": f"Stage {n} wheel tip diameter",
         })
 
     return variables
