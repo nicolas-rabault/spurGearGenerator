@@ -80,6 +80,21 @@ Gears sharing a shaft (wheel of stage N + pinion of stage N+1) must use the same
 
 Steel (mild, alloy, hardened), Brass, Bronze, Aluminum, Nylon, POM/Delrin
 
+### Spring Generation
+
+The `generate` command can optionally compute rubber torsion spring dimensions using the `--spring` flag. The value is the maximum angular displacement in degrees:
+
+```bash
+sgg generate config/example_config_results.json 1 --spring 60 -v
+```
+
+This uses the gearbox output torque combined with the given angle to size a tapered rubber torsion spring (via [springGenerator](https://github.com/nicolas-rabault/springGenerator)). The spring section is added to:
+
+- **JSON results** — a `spring` object with all dimensions and properties
+- **solution.txt** — a dedicated Spring section with outer/inner diameter, thickness, spring constant, shear strain, weight, material, and safety factor
+
+The default material is Natural Rubber 50A with a safety factor of 1.5.
+
 ### Onshape Integration
 
 The `generate` command supports pushing gear parameters directly to an Onshape Variable Studio via `--onshape <url>`.
@@ -113,6 +128,11 @@ This creates the following variables per stage (where `N` is the stage number):
 | `sNw_dedendum` | Wheel dedendum coefficient | Real |
 | `sNp_addendum` | Pinion addendum coefficient | Real |
 | `sNw_addendum` | Wheel addendum coefficient | Real |
+| `spring_outer_diam` | Spring outer diameter (mm)* | Length |
+| `spring_inner_diam` | Spring inner diameter (mm)* | Length |
+| `spring_thickness` | Spring thickness (mm)* | Length |
+
+\* Spring variables are only pushed when `--spring` is used.
 
 All existing variables in the Variable Studio are replaced when pushing.
 

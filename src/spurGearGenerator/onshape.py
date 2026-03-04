@@ -239,6 +239,28 @@ def build_variables(solution: GearboxSolution) -> list[dict]:
             "description": f"Stage {n} wheel tip diameter",
         })
 
+    # Spring parameters (if computed)
+    if solution.spring is not None:
+        sp = solution.spring
+        variables.append({
+            "name": "spring_outer_diam",
+            "type": "LENGTH",
+            "expression": f"{sp.outer_diameter_mm} mm",
+            "description": "Spring outer diameter",
+        })
+        variables.append({
+            "name": "spring_inner_diam",
+            "type": "LENGTH",
+            "expression": f"{sp.inner_diameter_mm} mm",
+            "description": "Spring inner diameter",
+        })
+        variables.append({
+            "name": "spring_thickness",
+            "type": "LENGTH",
+            "expression": f"{sp.thickness_mm} mm",
+            "description": "Spring thickness",
+        })
+
     return variables
 
 

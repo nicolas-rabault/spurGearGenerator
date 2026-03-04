@@ -8,7 +8,7 @@ import math
 from pathlib import Path
 
 from spurGearGenerator.cli import format_solution
-from spurGearGenerator.models import GearboxSolution
+from spurGearGenerator.models import GearboxSolution, SpringResult
 from spurGearGenerator.production import format_production
 from spurGearGenerator.tooth_profile import (
     PRESSURE_ANGLE_RAD,
@@ -112,11 +112,35 @@ def create_output_dir(results_path: Path, number: int) -> Path:
     return out_dir
 
 
+def compute_spring(solution: GearboxSolution, max_angle: float) -> SpringResult:
+    """Compute rubber torsion spring dimensions for the gearbox output."""
+    from spring_generator import compute_spring as sg_compute
+
+    last = solution.stages[-1]
+    torque_out = last.stage_torque_in_nm * last.stage_ratio * last.mesh_efficiency
+
+    dims = sg_compute(max_torque=torque_out, max_angle=max_angle)
+
+    return SpringResult(
+        max_torque_nm=round(dims.max_torque, 4),
+        max_angle_deg=round(dims.max_angle, 2),
+        outer_diameter_mm=round(dims.outer_diameter * 1000, 4),
+        inner_diameter_mm=round(dims.inner_diameter * 1000, 4),
+        thickness_mm=round(dims.thickness * 1000, 4),
+        spring_constant_nm_per_rad=round(dims.spring_constant, 4),
+        max_shear_strain=round(dims.max_shear_strain, 4),
+        rubber_weight_kg=round(dims.rubber_weight, 6),
+        material=dims.material,
+        safety_factor=dims.safety_factor,
+    )
+
+
 def generate(
     results_path: Path,
     number: int,
     verbose: bool = False,
     onshape_url: str | None = None,
+    spring_angle: float | None = None,
 ) -> Path:
     """Top-level orchestration: optimize, save, and export a solution.
 
@@ -134,15 +158,22 @@ def generate(
         print("Optimizing tooth geometry...")
     optimized = optimize_solution(solution)
 
-    # 3. Save back to JSON
+    # 3. Compute spring (if requested)
+    if spring_angle is not None:
+        if verbose:
+            print(f"Computing spring dimensions for {spring_angle}° max angle...")
+        spring_result = compute_spring(optimized, spring_angle)
+        optimized = optimized.model_copy(update={"spring": spring_result})
+
+    # 4. Save back to JSON
     save_solution(data, optimized, idx, results_path)
     if verbose:
         print(f"Saved optimized parameters to {results_path}")
 
-    # 4. Create output directory
+    # 5. Create output directory
     out_dir = create_output_dir(results_path, number)
 
-    # 5. Write text files
+    # 6. Write text files
     text = format_solution(optimized, number)
     (out_dir / "solution.txt").write_text(text)
     if verbose:
@@ -153,7 +184,7 @@ def generate(
     if verbose:
         print("Wrote prod.txt")
 
-    # 6. Push to Onshape (if URL provided)
+    # 7. Push to Onshape (if URL provided)
     if onshape_url:
         from spurGearGenerator.onshape import push_to_onshape
 

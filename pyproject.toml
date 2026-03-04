@@ -13,6 +13,7 @@ dependencies = [
     "requests>=2.28.0",
     "tabulate>=0.9.0",
     "tqdm>=4.60.0",
+    "spring-generator @ git+https://github.com/nicolas-rabault/springGenerator.git",
 ]
 
 [project.scripts]

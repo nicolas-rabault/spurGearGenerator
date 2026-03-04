@@ -97,6 +97,21 @@ class StageResult(BaseModel):
     geometry: StageGeometry | None = None
 
 
+class SpringResult(BaseModel):
+    """Rubber torsion spring dimensions (computed by generate --spring)."""
+
+    max_torque_nm: float
+    max_angle_deg: float
+    outer_diameter_mm: float
+    inner_diameter_mm: float
+    thickness_mm: float
+    spring_constant_nm_per_rad: float
+    max_shear_strain: float
+    rubber_weight_kg: float
+    material: str
+    safety_factor: float
+
+
 class GearboxSolution(BaseModel):
     """A complete multi-stage gearbox solution."""
 
@@ -106,6 +121,7 @@ class GearboxSolution(BaseModel):
     total_efficiency: float  # product of all stage efficiencies
     total_weight_kg: float  # sum of all gear weights
     ranking_tag: str = ""  # "weight", "efficiency", or "weight+efficiency"
+    spring: SpringResult | None = None
 
 
 # ---------------------------------------------------------------------------

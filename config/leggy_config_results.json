@@ -242,7 +242,19 @@
     "ratio_error_pct": -1.937119641261644,
     "total_efficiency": 0.9367310547690613,
     "total_weight_kg": 0.03459971181545983,
-    "ranking_tag": "weight"
+    "ranking_tag": "weight",
+    "spring": {
+      "max_torque_nm": 3.9052,
+      "max_angle_deg": 60.0,
+      "outer_diameter_mm": 24.796,
+      "inner_diameter_mm": 14.8776,
+      "thickness_mm": 7.4903,
+      "spring_constant_nm_per_rad": 3.7292,
+      "max_shear_strain": 1.7333,
+      "rubber_weight_kg": 0.00208,
+      "material": "Natural Rubber 50A",
+      "safety_factor": 1.5
+    }
   },
   {
     "stages": [

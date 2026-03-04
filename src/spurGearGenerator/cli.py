@@ -304,6 +304,22 @@ def format_solution(sol: GearboxSolution, number: int) -> str:
 
         lines.append("")
 
+    # ── Spring section ──
+    if sol.spring is not None:
+        sp = sol.spring
+        lines.append("\u2500\u2500 Spring " + "\u2500" * 44)
+        lines.append(f"  Max torque:       {sp.max_torque_nm:.3f} Nm")
+        lines.append(f"  Max angle:        {sp.max_angle_deg:.2f}\u00b0")
+        lines.append(f"  Outer diameter:   {sp.outer_diameter_mm:.2f} mm")
+        lines.append(f"  Inner diameter:   {sp.inner_diameter_mm:.2f} mm")
+        lines.append(f"  Thickness:        {sp.thickness_mm:.2f} mm")
+        lines.append(f"  Spring constant:  {sp.spring_constant_nm_per_rad:.4f} Nm/rad")
+        lines.append(f"  Max shear strain: {sp.max_shear_strain:.4f}")
+        lines.append(f"  Rubber weight:    {sp.rubber_weight_kg * 1000:.2f} g")
+        lines.append(f"  Material:         {sp.material}")
+        lines.append(f"  Safety factor:    {sp.safety_factor:.2f}")
+        lines.append("")
+
     # ── Summary ──
     lines.append(f"Overall efficiency: {sol.total_efficiency * 100:.2f}%")
 
@@ -350,7 +366,19 @@ def _mat_label(code: str) -> str:
     default=None,
     help="Onshape Variable Studio URL to push gear parameters to.",
 )
-def generate_cmd(results_file: str, number: int, verbose: bool, onshape: str | None):
+@click.option(
+    "--spring",
+    type=float,
+    default=None,
+    help="Generate spring dimensions for given max angle (degrees).",
+)
+def generate_cmd(
+    results_file: str,
+    number: int,
+    verbose: bool,
+    onshape: str | None,
+    spring: float | None,
+):
     """Generate optimized geometry, DXF, and STEP files for a solution."""
     from spurGearGenerator.generate import generate
     from spurGearGenerator.onshape import OnshapeError, validate_onshape_env
@@ -363,5 +391,11 @@ def generate_cmd(results_file: str, number: int, verbose: bool, onshape: str | N
             raise click.ClickException(str(e))
 
     results_path = Path(results_file)
-    out_dir = generate(results_path, number, verbose=verbose, onshape_url=onshape)
+    out_dir = generate(
+        results_path,
+        number,
+        verbose=verbose,
+        onshape_url=onshape,
+        spring_angle=spring,
+    )
     click.echo(f"Generated files in {out_dir}")
