@@ -177,6 +177,15 @@ def build_variables(solution: GearboxSolution) -> list[dict]:
             ),
             "description": f"Stage {n} backlash",
         })
+        variables.append({
+            "name": f"{prefix}_center_dist",
+            "type": "LENGTH",
+            "expression": (
+                f"{geom.operating_center_distance_mm} mm"
+                if geom is not None else "0 mm"
+            ),
+            "description": f"Stage {n} center distance",
+        })
 
         # Pinion parameters
         variables.append({

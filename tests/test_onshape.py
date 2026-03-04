@@ -171,19 +171,19 @@ class TestBuildVariables:
     def test_single_stage_count(self):
         sol = _make_solution(1)
         variables = build_variables(sol)
-        assert len(variables) == 10
+        assert len(variables) == 11
 
     def test_multi_stage_count(self):
         sol = _make_solution(3)
         variables = build_variables(sol)
-        assert len(variables) == 30
+        assert len(variables) == 33
 
     def test_variable_names(self):
         sol = _make_solution(1)
         variables = build_variables(sol)
         names = [v["name"] for v in variables]
         expected = [
-            "s1_depth", "s1_m", "s1_p", "s1_backlash",
+            "s1_depth", "s1_m", "s1_p", "s1_backlash", "s1_center_dist",
             "s1p_z", "s1p_dedendum", "s1p_addendum",
             "s1w_z", "s1w_dedendum", "s1w_addendum",
         ]
@@ -195,6 +195,8 @@ class TestBuildVariables:
         names = [v["name"] for v in variables]
         assert "s1_depth" in names
         assert "s2_depth" in names
+        assert "s1_center_dist" in names
+        assert "s2_center_dist" in names
         assert "s1p_z" in names
         assert "s2w_z" in names
 
@@ -206,6 +208,7 @@ class TestBuildVariables:
         assert by_name["s1_m"]["type"] == "LENGTH"
         assert by_name["s1_p"]["type"] == "ANGLE"
         assert by_name["s1_backlash"]["type"] == "LENGTH"
+        assert by_name["s1_center_dist"]["type"] == "LENGTH"
         assert by_name["s1p_z"]["type"] == "NUMBER"
         assert by_name["s1w_z"]["type"] == "NUMBER"
         assert by_name["s1p_dedendum"]["type"] == "NUMBER"
@@ -219,6 +222,7 @@ class TestBuildVariables:
         assert by_name["s1_m"]["expression"] == "1.0 mm"
         assert by_name["s1_p"]["expression"] == "20.71 deg"
         assert by_name["s1_backlash"]["expression"] == "0.04 mm"
+        assert by_name["s1_center_dist"]["expression"] == "22.5 mm"
         assert by_name["s1p_z"]["expression"] == "15"
         assert by_name["s1w_z"]["expression"] == "30"
         assert by_name["s1p_dedendum"]["expression"] == "1.1273"
@@ -232,6 +236,7 @@ class TestBuildVariables:
         by_name = {v["name"]: v for v in variables}
         assert by_name["s1_p"]["expression"] == "20 deg"
         assert by_name["s1_backlash"]["expression"] == "0 mm"
+        assert by_name["s1_center_dist"]["expression"] == "0 mm"
 
 
 # ---------------------------------------------------------------------------
@@ -336,7 +341,7 @@ class TestPushToOnshape:
 
         # Verify correct number of variables
         posted_vars = mock_set.call_args[0][-1]  # last positional arg
-        assert len(posted_vars) == 20  # 2 stages * 10 vars
+        assert len(posted_vars) == 22  # 2 stages * 11 vars
 
     @patch("spurGearGenerator.onshape.validate_onshape_env")
     def test_env_validation_failure(self, mock_env):
