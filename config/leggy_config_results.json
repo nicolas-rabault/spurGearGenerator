@@ -13,7 +13,14 @@
           "face_width_mm": 1.21410793419535,
           "lewis_stress_mpa": 380.0,
           "allowable_stress_mpa": 380.0,
-          "weight_kg": 0.00019469607103168317
+          "weight_kg": 0.00019469607103168317,
+          "profile_shift": 0.122667,
+          "base_diameter_mm": 4.2286,
+          "root_diameter_mm": 3.8236,
+          "tip_diameter_corrected_mm": 5.173,
+          "tooth_thickness_ref_mm": 0.498,
+          "addendum_coeff": 1.1216,
+          "dedendum_coeff": 1.1273
         },
         "wheel": {
           "role": "wheel",
@@ -25,11 +32,33 @@
           "face_width_mm": 1.21410793419535,
           "lewis_stress_mpa": 289.0,
           "allowable_stress_mpa": 380.0,
-          "weight_kg": 0.0010246807060179592
+          "weight_kg": 0.0010246807060179592,
+          "profile_shift": 0.0,
+          "base_diameter_mm": 10.4306,
+          "root_diameter_mm": 10.35,
+          "tip_diameter_corrected_mm": 11.6994,
+          "tooth_thickness_ref_mm": 0.4712,
+          "addendum_coeff": 0.999,
+          "dedendum_coeff": 1.25
         },
         "stage_ratio": 2.466666666666667,
         "mesh_efficiency": 0.98528262901021,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": {
+          "profile_shift_pinion": 0.122667,
+          "profile_shift_wheel": 0.0,
+          "operating_pressure_angle_deg": 20.7145,
+          "operating_center_distance_mm": 7.8362,
+          "contact_ratio": 1.5441,
+          "backlash_mm": 0.012,
+          "specific_sliding_tip_pinion": 0.1402,
+          "specific_sliding_tip_wheel": 0.9541,
+          "hertz_contact_stress_mpa": 1507.97,
+          "tip_relief_pinion_mm": 0.006,
+          "tip_relief_wheel_mm": 0.006,
+          "root_fillet_radius_pinion_mm": 0.1416,
+          "root_fillet_radius_wheel_mm": 0.1294
+        }
       },
       {
         "stage_number": 2,
@@ -43,7 +72,14 @@
           "face_width_mm": 2.127806404122193,
           "lewis_stress_mpa": 380.00000000000006,
           "allowable_stress_mpa": 380.0,
-          "weight_kg": 0.00047227412335045524
+          "weight_kg": 0.00047227412335045524,
+          "profile_shift": 0.239644,
+          "base_diameter_mm": 4.8864,
+          "root_diameter_mm": 4.3917,
+          "tip_diameter_corrected_mm": 6.1884,
+          "tooth_thickness_ref_mm": 0.6981,
+          "addendum_coeff": 1.2355,
+          "dedendum_coeff": 1.0104
         },
         "wheel": {
           "role": "wheel",
@@ -55,11 +91,33 @@
           "face_width_mm": 2.127806404122193,
           "lewis_stress_mpa": 271.13513513513516,
           "allowable_stress_mpa": 380.0,
-          "weight_kg": 0.002720298950498622
+          "weight_kg": 0.002720298950498622,
+          "profile_shift": 0.0,
+          "base_diameter_mm": 12.7798,
+          "root_diameter_mm": 12.6,
+          "tip_diameter_corrected_mm": 14.3967,
+          "tooth_thickness_ref_mm": 0.6283,
+          "addendum_coeff": 0.9958,
+          "dedendum_coeff": 1.25
         },
         "stage_ratio": 2.6153846153846154,
         "mesh_efficiency": 0.9832969621358914,
-        "stage_torque_in_nm": 0.222
+        "stage_torque_in_nm": 0.222,
+        "geometry": {
+          "profile_shift_pinion": 0.239644,
+          "profile_shift_wheel": 0.0,
+          "operating_pressure_angle_deg": 21.482,
+          "operating_center_distance_mm": 9.4925,
+          "contact_ratio": 1.4708,
+          "backlash_mm": 0.016,
+          "specific_sliding_tip_pinion": 0.1717,
+          "specific_sliding_tip_wheel": 0.9523,
+          "hertz_contact_stress_mpa": 1509.0,
+          "tip_relief_pinion_mm": 0.008,
+          "tip_relief_wheel_mm": 0.008,
+          "root_fillet_radius_pinion_mm": 0.1838,
+          "root_fillet_radius_wheel_mm": 0.1742
+        }
       },
       {
         "stage_number": 3,
@@ -73,7 +131,14 @@
           "face_width_mm": 3.5616205656691484,
           "lewis_stress_mpa": 380.00000000000006,
           "allowable_stress_mpa": 380.0,
-          "weight_kg": 0.001235178476455037
+          "weight_kg": 0.001235178476455037,
+          "profile_shift": 0.239644,
+          "base_diameter_mm": 6.108,
+          "root_diameter_mm": 5.4896,
+          "tip_diameter_corrected_mm": 7.7355,
+          "tooth_thickness_ref_mm": 0.8726,
+          "addendum_coeff": 1.2355,
+          "dedendum_coeff": 1.0104
         },
         "wheel": {
           "role": "wheel",
@@ -85,11 +150,33 @@
           "face_width_mm": 3.5616205656691484,
           "lewis_stress_mpa": 271.13513513513516,
           "allowable_stress_mpa": 380.0,
-          "weight_kg": 0.007114628024381013
+          "weight_kg": 0.007114628024381013,
+          "profile_shift": 0.0,
+          "base_diameter_mm": 15.9748,
+          "root_diameter_mm": 15.75,
+          "tip_diameter_corrected_mm": 17.9958,
+          "tooth_thickness_ref_mm": 0.7854,
+          "addendum_coeff": 0.9958,
+          "dedendum_coeff": 1.25
         },
         "stage_ratio": 2.6153846153846154,
         "mesh_efficiency": 0.9832969621358914,
-        "stage_torque_in_nm": 0.5806153846153846
+        "stage_torque_in_nm": 0.5806153846153846,
+        "geometry": {
+          "profile_shift_pinion": 0.239644,
+          "profile_shift_wheel": 0.0,
+          "operating_pressure_angle_deg": 21.482,
+          "operating_center_distance_mm": 11.8657,
+          "contact_ratio": 1.4708,
+          "backlash_mm": 0.02,
+          "specific_sliding_tip_pinion": 0.1717,
+          "specific_sliding_tip_wheel": 0.9523,
+          "hertz_contact_stress_mpa": 1509.0,
+          "tip_relief_pinion_mm": 0.01,
+          "tip_relief_wheel_mm": 0.01,
+          "root_fillet_radius_pinion_mm": 0.2298,
+          "root_fillet_radius_wheel_mm": 0.2178
+        }
       },
       {
         "stage_number": 4,
@@ -103,7 +190,14 @@
           "face_width_mm": 6.468755300894822,
           "lewis_stress_mpa": 380.0,
           "allowable_stress_mpa": 380.0,
-          "weight_kg": 0.0032304667845747125
+          "weight_kg": 0.0032304667845747125,
+          "profile_shift": 0.239644,
+          "base_diameter_mm": 7.3296,
+          "root_diameter_mm": 6.5876,
+          "tip_diameter_corrected_mm": 9.2826,
+          "tooth_thickness_ref_mm": 1.0471,
+          "addendum_coeff": 1.2355,
+          "dedendum_coeff": 1.0104
         },
         "wheel": {
           "role": "wheel",
@@ -115,11 +209,33 @@
           "face_width_mm": 6.468755300894822,
           "lewis_stress_mpa": 271.13513513513516,
           "allowable_stress_mpa": 380.0,
-          "weight_kg": 0.018607488679150345
+          "weight_kg": 0.018607488679150345,
+          "profile_shift": 0.0,
+          "base_diameter_mm": 19.1697,
+          "root_diameter_mm": 18.9,
+          "tip_diameter_corrected_mm": 21.595,
+          "tooth_thickness_ref_mm": 0.9425,
+          "addendum_coeff": 0.9958,
+          "dedendum_coeff": 1.25
         },
         "stage_ratio": 2.6153846153846154,
         "mesh_efficiency": 0.9832969621358914,
-        "stage_torque_in_nm": 1.5185325443786983
+        "stage_torque_in_nm": 1.5185325443786983,
+        "geometry": {
+          "profile_shift_pinion": 0.239644,
+          "profile_shift_wheel": 0.0,
+          "operating_pressure_angle_deg": 21.482,
+          "operating_center_distance_mm": 14.2388,
+          "contact_ratio": 1.4708,
+          "backlash_mm": 0.024,
+          "specific_sliding_tip_pinion": 0.1717,
+          "specific_sliding_tip_wheel": 0.9523,
+          "hertz_contact_stress_mpa": 1509.0,
+          "tip_relief_pinion_mm": 0.012,
+          "tip_relief_wheel_mm": 0.012,
+          "root_fillet_radius_pinion_mm": 0.2758,
+          "root_fillet_radius_wheel_mm": 0.2613
+        }
       }
     ],
     "total_ratio": 44.12829616143226,
@@ -158,7 +274,8 @@
         },
         "stage_ratio": 2.5,
         "mesh_efficiency": 0.9816740428540596,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -188,7 +305,8 @@
         },
         "stage_ratio": 2.5833333333333335,
         "mesh_efficiency": 0.9818429456848977,
-        "stage_torque_in_nm": 0.22499999999999998
+        "stage_torque_in_nm": 0.22499999999999998,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -218,7 +336,8 @@
         },
         "stage_ratio": 2.6153846153846154,
         "mesh_efficiency": 0.9832969621358914,
-        "stage_torque_in_nm": 0.5812499999999999
+        "stage_torque_in_nm": 0.5812499999999999,
+        "geometry": null
       },
       {
         "stage_number": 4,
@@ -248,7 +367,8 @@
         },
         "stage_ratio": 2.6153846153846154,
         "mesh_efficiency": 0.9832969621358914,
-        "stage_torque_in_nm": 1.5201923076923076
+        "stage_torque_in_nm": 1.5201923076923076,
+        "geometry": null
       }
     ],
     "total_ratio": 44.176528599605525,
@@ -287,7 +407,8 @@
         },
         "stage_ratio": 2.357142857142857,
         "mesh_efficiency": 0.9840200373681038,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -317,7 +438,8 @@
         },
         "stage_ratio": 2.5833333333333335,
         "mesh_efficiency": 0.9818429456848977,
-        "stage_torque_in_nm": 0.21214285714285713
+        "stage_torque_in_nm": 0.21214285714285713,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -347,7 +469,8 @@
         },
         "stage_ratio": 2.6923076923076925,
         "mesh_efficiency": 0.9834289618272187,
-        "stage_torque_in_nm": 0.5480357142857143
+        "stage_torque_in_nm": 0.5480357142857143,
+        "geometry": null
       },
       {
         "stage_number": 4,
@@ -377,7 +500,8 @@
         },
         "stage_ratio": 2.6923076923076925,
         "mesh_efficiency": 0.9834289618272187,
-        "stage_torque_in_nm": 1.4754807692307694
+        "stage_torque_in_nm": 1.4754807692307694,
+        "geometry": null
       }
     ],
     "total_ratio": 44.13831360946746,
@@ -416,7 +540,8 @@
         },
         "stage_ratio": 2.357142857142857,
         "mesh_efficiency": 0.9840200373681038,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -446,7 +571,8 @@
         },
         "stage_ratio": 2.5833333333333335,
         "mesh_efficiency": 0.9818429456848977,
-        "stage_torque_in_nm": 0.21214285714285713
+        "stage_torque_in_nm": 0.21214285714285713,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -476,7 +602,8 @@
         },
         "stage_ratio": 2.6153846153846154,
         "mesh_efficiency": 0.9832969621358914,
-        "stage_torque_in_nm": 0.5480357142857143
+        "stage_torque_in_nm": 0.5480357142857143,
+        "geometry": null
       },
       {
         "stage_number": 4,
@@ -506,7 +633,8 @@
         },
         "stage_ratio": 2.769230769230769,
         "mesh_efficiency": 0.9835536282023611,
-        "stage_torque_in_nm": 1.433324175824176
+        "stage_torque_in_nm": 1.433324175824176,
+        "geometry": null
       }
     ],
     "total_ratio": 44.10228233305157,
@@ -545,7 +673,8 @@
         },
         "stage_ratio": 2.5,
         "mesh_efficiency": 0.9816740428540596,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -575,7 +704,8 @@
         },
         "stage_ratio": 2.5384615384615383,
         "mesh_efficiency": 0.9831569624632716,
-        "stage_torque_in_nm": 0.22499999999999998
+        "stage_torque_in_nm": 0.22499999999999998,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -605,7 +735,8 @@
         },
         "stage_ratio": 2.5833333333333335,
         "mesh_efficiency": 0.9818429456848977,
-        "stage_torque_in_nm": 0.571153846153846
+        "stage_torque_in_nm": 0.571153846153846,
+        "geometry": null
       },
       {
         "stage_number": 4,
@@ -635,7 +766,8 @@
         },
         "stage_ratio": 2.6923076923076925,
         "mesh_efficiency": 0.9834289618272187,
-        "stage_torque_in_nm": 1.475480769230769
+        "stage_torque_in_nm": 1.475480769230769,
+        "geometry": null
       }
     ],
     "total_ratio": 44.13831360946746,
@@ -674,7 +806,8 @@
         },
         "stage_ratio": 2.4,
         "mesh_efficiency": 0.9851647013580482,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -704,7 +837,8 @@
         },
         "stage_ratio": 2.5384615384615383,
         "mesh_efficiency": 0.9831569624632716,
-        "stage_torque_in_nm": 0.216
+        "stage_torque_in_nm": 0.216,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -734,7 +868,8 @@
         },
         "stage_ratio": 2.6923076923076925,
         "mesh_efficiency": 0.9834289618272187,
-        "stage_torque_in_nm": 0.5483076923076923
+        "stage_torque_in_nm": 0.5483076923076923,
+        "geometry": null
       },
       {
         "stage_number": 4,
@@ -764,7 +899,8 @@
         },
         "stage_ratio": 2.6923076923076925,
         "mesh_efficiency": 0.9834289618272187,
-        "stage_torque_in_nm": 1.4762130177514794
+        "stage_torque_in_nm": 1.4762130177514794,
+        "geometry": null
       }
     ],
     "total_ratio": 44.16021847974511,
@@ -803,7 +939,8 @@
         },
         "stage_ratio": 2.4,
         "mesh_efficiency": 0.9851647013580482,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -833,7 +970,8 @@
         },
         "stage_ratio": 2.5384615384615383,
         "mesh_efficiency": 0.9831569624632716,
-        "stage_torque_in_nm": 0.216
+        "stage_torque_in_nm": 0.216,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -863,7 +1001,8 @@
         },
         "stage_ratio": 2.6153846153846154,
         "mesh_efficiency": 0.9832969621358914,
-        "stage_torque_in_nm": 0.5483076923076923
+        "stage_torque_in_nm": 0.5483076923076923,
+        "geometry": null
       },
       {
         "stage_number": 4,
@@ -893,7 +1032,8 @@
         },
         "stage_ratio": 2.769230769230769,
         "mesh_efficiency": 0.9835536282023611,
-        "stage_torque_in_nm": 1.4340355029585798
+        "stage_torque_in_nm": 1.4340355029585798,
+        "geometry": null
       }
     ],
     "total_ratio": 44.124169321802455,
@@ -932,7 +1072,8 @@
         },
         "stage_ratio": 2.076923076923077,
         "mesh_efficiency": 0.9820991871590325,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -962,7 +1103,8 @@
         },
         "stage_ratio": 2.769230769230769,
         "mesh_efficiency": 0.9835536282023611,
-        "stage_torque_in_nm": 0.18692307692307694
+        "stage_torque_in_nm": 0.18692307692307694,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -992,7 +1134,8 @@
         },
         "stage_ratio": 2.769230769230769,
         "mesh_efficiency": 0.9835536282023611,
-        "stage_torque_in_nm": 0.5176331360946747
+        "stage_torque_in_nm": 0.5176331360946747,
+        "geometry": null
       },
       {
         "stage_number": 4,
@@ -1022,7 +1165,8 @@
         },
         "stage_ratio": 2.769230769230769,
         "mesh_efficiency": 0.9835536282023611,
-        "stage_torque_in_nm": 1.4334456076467914
+        "stage_torque_in_nm": 1.4334456076467914,
+        "geometry": null
       }
     ],
     "total_ratio": 44.10601869682434,
@@ -1061,7 +1205,8 @@
         },
         "stage_ratio": 2.4285714285714284,
         "mesh_efficiency": 0.9841600370407237,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -1091,7 +1236,8 @@
         },
         "stage_ratio": 2.5833333333333335,
         "mesh_efficiency": 0.9818429456848977,
-        "stage_torque_in_nm": 0.21857142857142856
+        "stage_torque_in_nm": 0.21857142857142856,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -1121,7 +1267,8 @@
         },
         "stage_ratio": 2.6153846153846154,
         "mesh_efficiency": 0.9832969621358914,
-        "stage_torque_in_nm": 0.5646428571428571
+        "stage_torque_in_nm": 0.5646428571428571,
+        "geometry": null
       },
       {
         "stage_number": 4,
@@ -1151,7 +1298,8 @@
         },
         "stage_ratio": 2.6923076923076925,
         "mesh_efficiency": 0.9834289618272187,
-        "stage_torque_in_nm": 1.4767582417582417
+        "stage_torque_in_nm": 1.4767582417582417,
+        "geometry": null
       }
     ],
     "total_ratio": 44.176528599605525,
@@ -1190,7 +1338,8 @@
         },
         "stage_ratio": 2.3333333333333335,
         "mesh_efficiency": 0.9813000437286322,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -1220,7 +1369,8 @@
         },
         "stage_ratio": 2.5384615384615383,
         "mesh_efficiency": 0.9831569624632716,
-        "stage_torque_in_nm": 0.21
+        "stage_torque_in_nm": 0.21,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -1250,7 +1400,8 @@
         },
         "stage_ratio": 2.6923076923076925,
         "mesh_efficiency": 0.9834289618272187,
-        "stage_torque_in_nm": 0.533076923076923
+        "stage_torque_in_nm": 0.533076923076923,
+        "geometry": null
       },
       {
         "stage_number": 4,
@@ -1280,7 +1431,8 @@
         },
         "stage_ratio": 2.769230769230769,
         "mesh_efficiency": 0.9835536282023611,
-        "stage_torque_in_nm": 1.435207100591716
+        "stage_torque_in_nm": 1.435207100591716,
+        "geometry": null
       }
     ],
     "total_ratio": 44.16021847974511,
@@ -1319,7 +1471,8 @@
         },
         "stage_ratio": 3.5714285714285716,
         "mesh_efficiency": 0.9856384335835895,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -1349,7 +1502,8 @@
         },
         "stage_ratio": 3.5714285714285716,
         "mesh_efficiency": 0.9856384335835895,
-        "stage_torque_in_nm": 0.32142857142857145
+        "stage_torque_in_nm": 0.32142857142857145,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -1379,7 +1533,8 @@
         },
         "stage_ratio": 3.5714285714285716,
         "mesh_efficiency": 0.9856384335835895,
-        "stage_torque_in_nm": 1.1479591836734695
+        "stage_torque_in_nm": 1.1479591836734695,
+        "geometry": null
       }
     ],
     "total_ratio": 45.55393586005832,
@@ -1418,7 +1573,8 @@
         },
         "stage_ratio": 3.5,
         "mesh_efficiency": 0.9855743194478019,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -1448,7 +1604,8 @@
         },
         "stage_ratio": 3.5714285714285716,
         "mesh_efficiency": 0.9856384335835895,
-        "stage_torque_in_nm": 0.315
+        "stage_torque_in_nm": 0.315,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -1478,7 +1635,8 @@
         },
         "stage_ratio": 3.5714285714285716,
         "mesh_efficiency": 0.9856384335835895,
-        "stage_torque_in_nm": 1.125
+        "stage_torque_in_nm": 1.125,
+        "geometry": null
       }
     ],
     "total_ratio": 44.642857142857146,
@@ -1517,7 +1675,8 @@
         },
         "stage_ratio": 3.3333333333333335,
         "mesh_efficiency": 0.9863864318344442,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -1547,7 +1706,8 @@
         },
         "stage_ratio": 3.5714285714285716,
         "mesh_efficiency": 0.9856384335835895,
-        "stage_torque_in_nm": 0.3
+        "stage_torque_in_nm": 0.3,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -1577,7 +1737,8 @@
         },
         "stage_ratio": 3.8461538461538463,
         "mesh_efficiency": 0.9847753586787572,
-        "stage_torque_in_nm": 1.0714285714285714
+        "stage_torque_in_nm": 1.0714285714285714,
+        "geometry": null
       }
     ],
     "total_ratio": 45.78754578754579,
@@ -1616,7 +1777,8 @@
         },
         "stage_ratio": 3.2666666666666666,
         "mesh_efficiency": 0.9863223176986566,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -1646,7 +1808,8 @@
         },
         "stage_ratio": 3.5714285714285716,
         "mesh_efficiency": 0.9856384335835895,
-        "stage_torque_in_nm": 0.294
+        "stage_torque_in_nm": 0.294,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -1676,7 +1839,8 @@
         },
         "stage_ratio": 3.8461538461538463,
         "mesh_efficiency": 0.9847753586787572,
-        "stage_torque_in_nm": 1.05
+        "stage_torque_in_nm": 1.05,
+        "geometry": null
       }
     ],
     "total_ratio": 44.871794871794876,
@@ -1715,7 +1879,8 @@
         },
         "stage_ratio": 3.3333333333333335,
         "mesh_efficiency": 0.9863864318344442,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -1745,7 +1910,8 @@
         },
         "stage_ratio": 3.5,
         "mesh_efficiency": 0.9855743194478019,
-        "stage_torque_in_nm": 0.3
+        "stage_torque_in_nm": 0.3,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -1775,7 +1941,8 @@
         },
         "stage_ratio": 3.8461538461538463,
         "mesh_efficiency": 0.9847753586787572,
-        "stage_torque_in_nm": 1.05
+        "stage_torque_in_nm": 1.05,
+        "geometry": null
       }
     ],
     "total_ratio": 44.871794871794876,
@@ -1814,7 +1981,8 @@
         },
         "stage_ratio": 3.3333333333333335,
         "mesh_efficiency": 0.9863864318344442,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -1844,7 +2012,8 @@
         },
         "stage_ratio": 3.5714285714285716,
         "mesh_efficiency": 0.9856384335835895,
-        "stage_torque_in_nm": 0.3
+        "stage_torque_in_nm": 0.3,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -1874,7 +2043,8 @@
         },
         "stage_ratio": 3.769230769230769,
         "mesh_efficiency": 0.9847112445429697,
-        "stage_torque_in_nm": 1.0714285714285714
+        "stage_torque_in_nm": 1.0714285714285714,
+        "geometry": null
       }
     ],
     "total_ratio": 44.871794871794876,
@@ -1913,7 +2083,8 @@
         },
         "stage_ratio": 2.7777777777777777,
         "mesh_efficiency": 0.9881317610864385,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -1943,7 +2114,8 @@
         },
         "stage_ratio": 3.8461538461538463,
         "mesh_efficiency": 0.9847753586787572,
-        "stage_torque_in_nm": 0.24999999999999997
+        "stage_torque_in_nm": 0.24999999999999997,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -1973,7 +2145,8 @@
         },
         "stage_ratio": 4.166666666666667,
         "mesh_efficiency": 0.9837684379564527,
-        "stage_torque_in_nm": 0.9615384615384615
+        "stage_torque_in_nm": 0.9615384615384615,
+        "geometry": null
       }
     ],
     "total_ratio": 44.515669515669515,
@@ -2012,7 +2185,8 @@
         },
         "stage_ratio": 3.0625,
         "mesh_efficiency": 0.9869768161681546,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -2042,7 +2216,8 @@
         },
         "stage_ratio": 3.8461538461538463,
         "mesh_efficiency": 0.9847753586787572,
-        "stage_torque_in_nm": 0.275625
+        "stage_torque_in_nm": 0.275625,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -2072,7 +2247,8 @@
         },
         "stage_ratio": 3.8461538461538463,
         "mesh_efficiency": 0.9847753586787572,
-        "stage_torque_in_nm": 1.060096153846154
+        "stage_torque_in_nm": 1.060096153846154,
+        "geometry": null
       }
     ],
     "total_ratio": 45.303254437869825,
@@ -2111,7 +2287,8 @@
         },
         "stage_ratio": 3.125,
         "mesh_efficiency": 0.9870409303039421,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -2141,7 +2318,8 @@
         },
         "stage_ratio": 3.769230769230769,
         "mesh_efficiency": 0.9847112445429697,
-        "stage_torque_in_nm": 0.28125
+        "stage_torque_in_nm": 0.28125,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -2171,7 +2349,8 @@
         },
         "stage_ratio": 3.8461538461538463,
         "mesh_efficiency": 0.9847753586787572,
-        "stage_torque_in_nm": 1.0600961538461537
+        "stage_torque_in_nm": 1.0600961538461537,
+        "geometry": null
       }
     ],
     "total_ratio": 45.303254437869825,
@@ -2210,7 +2389,8 @@
         },
         "stage_ratio": 3.2666666666666666,
         "mesh_efficiency": 0.9863223176986566,
-        "stage_torque_in_nm": 0.09
+        "stage_torque_in_nm": 0.09,
+        "geometry": null
       },
       {
         "stage_number": 2,
@@ -2240,7 +2420,8 @@
         },
         "stage_ratio": 3.3333333333333335,
         "mesh_efficiency": 0.9863864318344442,
-        "stage_torque_in_nm": 0.294
+        "stage_torque_in_nm": 0.294,
+        "geometry": null
       },
       {
         "stage_number": 3,
@@ -2270,7 +2451,8 @@
         },
         "stage_ratio": 4.166666666666667,
         "mesh_efficiency": 0.9837684379564527,
-        "stage_torque_in_nm": 0.98
+        "stage_torque_in_nm": 0.98,
+        "geometry": null
       }
     ],
     "total_ratio": 45.370370370370374,

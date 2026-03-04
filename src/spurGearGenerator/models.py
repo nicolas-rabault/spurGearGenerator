@@ -57,6 +57,33 @@ class GearResult(BaseModel):
     allowable_stress_mpa: float
     weight_kg: float
 
+    # Optional fields populated by the generate command
+    profile_shift: float | None = None
+    base_diameter_mm: float | None = None
+    root_diameter_mm: float | None = None
+    tip_diameter_corrected_mm: float | None = None
+    tooth_thickness_ref_mm: float | None = None
+    addendum_coeff: float | None = None
+    dedendum_coeff: float | None = None
+
+
+class StageGeometry(BaseModel):
+    """Optimized meshing geometry for a gear pair (computed by generate)."""
+
+    profile_shift_pinion: float
+    profile_shift_wheel: float
+    operating_pressure_angle_deg: float
+    operating_center_distance_mm: float
+    contact_ratio: float
+    backlash_mm: float
+    specific_sliding_tip_pinion: float
+    specific_sliding_tip_wheel: float
+    hertz_contact_stress_mpa: float
+    tip_relief_pinion_mm: float
+    tip_relief_wheel_mm: float
+    root_fillet_radius_pinion_mm: float
+    root_fillet_radius_wheel_mm: float
+
 
 class StageResult(BaseModel):
     """One gear-mesh stage in a gearbox solution."""
@@ -67,6 +94,7 @@ class StageResult(BaseModel):
     stage_ratio: float
     mesh_efficiency: float
     stage_torque_in_nm: float  # torque on the pinion shaft entering this stage
+    geometry: StageGeometry | None = None
 
 
 class GearboxSolution(BaseModel):

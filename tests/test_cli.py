@@ -83,7 +83,7 @@ def test_cli_show_solution(tmp_path):
     assert "Stage 1" in result.output
     assert "Pinion" in result.output
     assert "Wheel" in result.output
-    assert "Stress" in result.output
+    assert "stress" in result.output.lower()
 
 
 def test_cli_show_invalid_number(tmp_path):

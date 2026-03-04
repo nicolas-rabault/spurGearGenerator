@@ -27,7 +27,20 @@ sgg solve config/example_config.json -s 2 -o results.json
 
 # Show full details of solution #1
 sgg show config/example_config_results.json 1
+
+# Generate optimized geometry and production spec for solution #1
+sgg generate config/example_config_results.json 1 -v
+
+# Generate and push parameters to an Onshape Variable Studio
+sgg generate config/example_config_results.json 1 --onshape <variable_studio_url>
 ```
+
+### Generate output
+
+The `generate` command writes two files to `config/solutions/<config>/<number>/`:
+
+- **solution.txt** — full technical summary (diameters, stresses, efficiency)
+- **prod.txt** — production specification organised by physical part (shaft), ready to send to a gear manufacturer. Includes material trade names, heat treatment, ISO 1328 quality grades, tolerances, and mesh specifications.
 
 ### Configuration
 
@@ -66,6 +79,42 @@ Gears sharing a shaft (wheel of stage N + pinion of stage N+1) must use the same
 ### Available materials
 
 Steel (mild, alloy, hardened), Brass, Bronze, Aluminum, Nylon, POM/Delrin
+
+### Onshape Integration
+
+The `generate` command supports pushing gear parameters directly to an Onshape Variable Studio via `--onshape <url>`.
+
+**Setup:** Create API keys at https://dev-portal.onshape.com/keys and set environment variables:
+
+```bash
+export ONSHAPE_API=https://cad.onshape.com
+export ONSHAPE_ACCESS_KEY=<your-access-key>
+export ONSHAPE_SECRET_KEY=<your-secret-key>
+```
+
+**Usage:** Provide the URL of a Variable Studio tab (not a Part Studio or Assembly):
+
+```bash
+sgg generate config/example_config_results.json 1 \
+    --onshape "https://cad.onshape.com/documents/<did>/w/<wid>/e/<eid>"
+```
+
+This creates the following variables per stage (where `N` is the stage number):
+
+| Variable | Description | Type |
+|----------|-------------|------|
+| `sN_depth` | Face width (mm) | Length |
+| `sN_m` | Module (mm) | Length |
+| `sN_p` | Pressure angle (deg) | Angle |
+| `sN_backlash` | Backlash (mm) | Length |
+| `sNp_z` | Pinion tooth count | Integer |
+| `sNw_z` | Wheel tooth count | Integer |
+| `sNp_dedendum` | Pinion dedendum coefficient | Real |
+| `sNw_dedendum` | Wheel dedendum coefficient | Real |
+| `sNp_addendum` | Pinion addendum coefficient | Real |
+| `sNw_addendum` | Wheel addendum coefficient | Real |
+
+All existing variables in the Variable Studio are replaced when pushing.
 
 ### Standard modules
 
