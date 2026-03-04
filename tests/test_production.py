@@ -288,6 +288,22 @@ class TestFormatProduction:
         assert "Backlash" in text
         assert "0.012" in text
 
+    def test_contains_cut_tooth_thickness(self):
+        sol = _make_solution()
+        text = format_production(sol, 1)
+        assert "Tooth thickness (cut)" in text
+        assert "Backlash allowance" in text
+
+    def test_cut_thickness_equals_ref_minus_half_backlash(self):
+        sol = _make_solution()
+        text = format_production(sol, 1)
+        # Pinion: tooth_thickness_ref = m*(pi/2 + 2*x*tan(20°))
+        # with m=0.3, x=0.1 → ref ≈ 0.4930
+        pinion = sol.stages[0].pinion
+        backlash = sol.stages[0].geometry.backlash_mm  # 0.012
+        expected = pinion.tooth_thickness_ref_mm - backlash / 2.0
+        assert f"{expected:.4f}" in text
+
     def test_contains_root_fillet(self):
         sol = _make_solution()
         text = format_production(sol, 1)
@@ -381,6 +397,18 @@ class TestPartBasedStructure:
         # Part 2 should have 2 gears
         assert "GEAR A" in text
         assert "GEAR B" in text
+
+    def test_compound_assembly_instructions(self):
+        sol = _make_solution(n_stages=2)
+        text = format_production(sol, 1)
+        assert "ASSEMBLY" in text
+        assert "manufactured independently" in text
+        assert "press" in text.lower()
+
+    def test_single_stage_no_assembly_section(self):
+        sol = _make_solution(n_stages=1)
+        text = format_production(sol, 1)
+        assert "manufactured independently" not in text
 
     def test_mesh_partner_references(self):
         sol = _make_solution(n_stages=2)

@@ -280,6 +280,11 @@ def _format_gear_spec(
     lines.append(f"      Tooth profile")
     if gear.tooth_thickness_ref_mm is not None:
         lines.append(f"        Tooth thickness (ref):  {gear.tooth_thickness_ref_mm:.4f} mm")
+        if geom is not None:
+            half_backlash = geom.backlash_mm / 2.0
+            actual_thickness = gear.tooth_thickness_ref_mm - half_backlash
+            lines.append(f"        Tooth thickness (cut):  {actual_thickness:.4f} mm")
+            lines.append(f"        Backlash allowance:     {half_backlash:.4f} mm (per gear, symmetric)")
     if root_fillet is not None:
         lines.append(f"        Root fillet radius:     \u03c1 = {root_fillet:.3f} mm")
     if tip_relief is not None:
@@ -358,6 +363,13 @@ def _format_part(part: _Part) -> str:
             gear_letter=letters[i],
             lines=lines,
         )
+
+    # Assembly instructions for compound parts
+    if part.is_compound:
+        lines.append("  ASSEMBLY")
+        lines.append("    Each gear is manufactured independently")
+        lines.append("    Assembled by interference (press) fit onto shared shaft")
+        lines.append("")
 
     return "\n".join(lines)
 
