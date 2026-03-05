@@ -140,6 +140,8 @@ class _Precomputed:
     pair_data: dict[float, dict[tuple[int, int], list[_PairCoeffs]]]
     # Lower bound on weight per unit torque (across all ratios/materials)
     global_min_weight_per_torque: float
+    # Minimum clearance between adjacent-stage axes (mm)
+    axis_margin: float
 
 
 def _precompute(
@@ -147,6 +149,7 @@ def _precompute(
     ratio_map: dict[float, list[tuple[int, int]]],
     materials: tuple[GearMaterial, ...],
     max_teeth: int,
+    axis_margin: float = 0.0,
 ) -> _Precomputed:
     """Build all precomputed coefficients.  Called once per solve()."""
     # Precompute Lewis Y factors for all tooth counts
@@ -218,6 +221,7 @@ def _precompute(
         n_mats=n_mats,
         pair_data=pair_data,
         global_min_weight_per_torque=global_min_w_per_t,
+        axis_margin=axis_margin,
     )
 
 
@@ -464,6 +468,31 @@ def _pareto_insert_light(
 
 
 # ---------------------------------------------------------------------------
+# Axis collision constraint
+# ---------------------------------------------------------------------------
+
+
+def _check_axis_constraint(path: tuple, axis_margin: float) -> bool:
+    """Check that the most recently added stage doesn't cause axis collision.
+
+    For stage N (0-indexed), verifies:
+      center_dist(N-1) > (tip_diam_wheel(N-2) + tip_diam_pinion(N)) / 2 + axis_margin
+    Only applies when the path has >= 3 stages.
+    """
+    n = len(path)
+    if n < 3:
+        return True
+    # path entries: (ratio, mat_p_idx, mat_w_idx, module, z1, z2, face_width)
+    _, _, _, m_prev, _, z2_prev, _ = path[-3]  # stage N-2
+    _, _, _, m_mid, z1_mid, z2_mid, _ = path[-2]  # stage N-1
+    _, _, _, m_next, z1_next, _, _ = path[-1]  # stage N
+    center_dist = m_mid * (z1_mid + z2_mid) / 2.0
+    tip_wheel_prev = m_prev * (z2_prev + 2) / 2.0
+    tip_pinion_next = m_next * (z1_next + 2) / 2.0
+    return center_dist > tip_wheel_prev + tip_pinion_next + axis_margin
+
+
+# ---------------------------------------------------------------------------
 # DP extension helper
 # ---------------------------------------------------------------------------
 
@@ -498,12 +527,15 @@ def _extend_dp(
                     continue
                 m, b, z1, z2, w, eta = result
 
+                new_path = state.path + ((ratio, mat_idx, next_mat, m, z1, z2, b),)
+                if not _check_axis_constraint(new_path, precomp.axis_margin):
+                    continue
+
                 candidate = _LightDPState(
                     total_weight=state.total_weight + w,
                     total_efficiency=state.total_efficiency * eta,
                     last_module=m,
-                    path=state.path
-                    + ((ratio, mat_idx, next_mat, m, z1, z2, b),),
+                    path=new_path,
                 )
 
                 if next_mat not in dp_next:
@@ -569,6 +601,8 @@ def _evaluate_leaf(
                     continue
                 m, b, z1, z2, w, eta = result
                 path = state.path + ((ratio, mat_idx, next_mat, m, z1, z2, b),)
+                if not _check_axis_constraint(path, precomp.axis_margin):
+                    continue
                 _update_results(results, state.total_weight + w, state.total_efficiency * eta, path)
 
     for mat_idx, frontier in dp_e.items():
@@ -581,6 +615,8 @@ def _evaluate_leaf(
                     continue
                 m, b, z1, z2, w, eta = result
                 path = state.path + ((ratio, mat_idx, next_mat, m, z1, z2, b),)
+                if not _check_axis_constraint(path, precomp.axis_margin):
+                    continue
                 _update_results(results, state.total_weight + w, state.total_efficiency * eta, path)
 
 
@@ -900,7 +936,7 @@ def solve(
         return [], stats
 
     # Phase 1.5: precompute coefficients
-    precomp = _precompute(unique_ratios, ratio_map, materials, max_teeth)
+    precomp = _precompute(unique_ratios, ratio_map, materials, max_teeth, config.axis_margin)
 
     # Phase 2+3: fused tree search per stage count
     all_results = _TreeResults(

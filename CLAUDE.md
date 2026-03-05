@@ -61,6 +61,7 @@ spurGearGenerator/
 - Module choice is independent across stages (no cross-stage module combinatorics)
 - Stage-level caching avoids recomputing shared (ratio, torque, material) combos
 - Profile shift optimised via bisection to balance specific sliding
+- Axis collision constraint filters 3+ stage solutions where adjacent gears would collide
 
 ### Configuration (JSON)
 ```json
@@ -68,7 +69,8 @@ spurGearGenerator/
   "target_ratio": 5.0,
   "reduction_margin": 3.0,
   "input_torque": 0.5,
-  "max_teeth_per_gear": 100
+  "max_teeth_per_gear": 100,
+  "axis_margin": 1.0
 }
 ```
 

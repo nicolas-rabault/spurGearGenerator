@@ -51,16 +51,18 @@ Create a JSON file describing your requirements:
   "target_ratio": 5.0,
   "reduction_margin": 3.0,
   "input_torque": 0.5,
-  "max_teeth_per_gear": 100
+  "max_teeth_per_gear": 100,
+  "axis_margin": 1.0
 }
 ```
 
-| Field                | Description                               | Default    |
-| -------------------- | ----------------------------------------- | ---------- |
-| `target_ratio`       | Desired total gear reduction ratio        | (required) |
-| `reduction_margin`   | Acceptable margin around target ratio (%) | 5.0        |
-| `input_torque`       | Peak input torque from the motor (Nm)     | (required) |
-| `max_teeth_per_gear` | Maximum teeth on any single gear          | 150        |
+| Field                | Description                                          | Default    |
+| -------------------- | ---------------------------------------------------- | ---------- |
+| `target_ratio`       | Desired total gear reduction ratio                   | (required) |
+| `reduction_margin`   | Acceptable margin around target ratio (%)            | 5.0        |
+| `input_torque`       | Peak input torque from the motor (Nm)                | (required) |
+| `max_teeth_per_gear` | Maximum teeth on any single gear                     | 150        |
+| `axis_margin`        | Minimum clearance between adjacent-stage axes (mm)   | (required) |
 
 ### What the solver does
 

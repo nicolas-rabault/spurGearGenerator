@@ -2,5 +2,6 @@
   "target_ratio": 10.0,
   "reduction_margin": 3.0,
   "input_torque": 0.2,
-  "max_teeth_per_gear": 60
+  "max_teeth_per_gear": 60,
+  "axis_margin": 0.0
 }

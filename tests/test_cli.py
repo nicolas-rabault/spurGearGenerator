@@ -8,7 +8,7 @@ from spurGearGenerator.cli import main
 
 
 def _write_config(tmp_path, **overrides):
-    data = {"target_ratio": 3.0, "input_torque": 0.5, "reduction_margin": 5.0}
+    data = {"target_ratio": 3.0, "input_torque": 0.5, "reduction_margin": 5.0, "axis_margin": 0.0}
     data.update(overrides)
     f = tmp_path / "config.json"
     f.write_text(json.dumps(data))

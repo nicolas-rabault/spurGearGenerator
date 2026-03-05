@@ -29,6 +29,11 @@ class GearConfig(BaseModel):
         le=500,
         description="Maximum number of teeth on any single gear",
     )
+    axis_margin: float = Field(
+        ...,
+        ge=0,
+        description="Minimum clearance between adjacent-stage axes in mm",
+    )
 
 
 def load_config(path: str | Path) -> GearConfig:

@@ -7,7 +7,7 @@ from spurGearGenerator.solver import solve
 
 
 def _make_config(**overrides) -> GearConfig:
-    defaults = {"target_ratio": 3.0, "input_torque": 0.5, "reduction_margin": 5.0, "max_teeth_per_gear": 80}
+    defaults = {"target_ratio": 3.0, "input_torque": 0.5, "reduction_margin": 5.0, "max_teeth_per_gear": 80, "axis_margin": 0.0}
     defaults.update(overrides)
     return GearConfig(**defaults)
 
