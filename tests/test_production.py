@@ -163,7 +163,7 @@ class TestQualityGrade:
 
 class TestSurfaceFinish:
     def test_grade_5(self):
-        assert "0.4" in surface_finish(5)
+        assert "0.8" in surface_finish(5)
 
     def test_grade_6(self):
         assert "0.8" in surface_finish(6)

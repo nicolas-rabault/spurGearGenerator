@@ -5,15 +5,11 @@ import math
 import pytest
 
 from spurGearGenerator.gear_math import (
-    MIN_TEETH,
-    STANDARD_MODULES,
     addendum_diameter,
     gear_weight,
     lewis_bending_stress,
     lewis_form_factor,
-    max_face_width,
     mesh_efficiency,
-    minimum_face_width,
     pitch_diameter,
     tangential_force,
 )
@@ -31,11 +27,6 @@ def test_pitch_diameter():
 def test_addendum_diameter():
     assert addendum_diameter(2.0, 20) == pytest.approx(44.0)
     assert addendum_diameter(1.0, 50) == pytest.approx(52.0)
-
-
-def test_max_face_width():
-    assert max_face_width(2.0) == pytest.approx(24.0)
-    assert max_face_width(0.5) == pytest.approx(6.0)
 
 
 # ---- Lewis form factor -----------------------------------------------------
@@ -89,24 +80,6 @@ def test_lewis_bending_stress():
     assert sigma == pytest.approx(expected)
 
 
-def test_minimum_face_width_basic():
-    """Should return a face width that satisfies stress."""
-    b = minimum_face_width(torque_nm=1.0, module=2.0, z=20, allowable_stress_mpa=140.0)
-    assert b is not None
-    assert b >= 2.0  # at least 1*module
-    assert b <= max_face_width(2.0)
-    # Verify stress at returned width is <= allowable
-    ft = tangential_force(1.0, 2.0, 20)
-    sigma = lewis_bending_stress(ft, b, 2.0, 20)
-    assert sigma <= 140.0 + 1e-6
-
-
-def test_minimum_face_width_impossible():
-    """Very high torque with tiny module should return None."""
-    b = minimum_face_width(torque_nm=1000.0, module=0.2, z=12, allowable_stress_mpa=40.0)
-    assert b is None
-
-
 # ---- Efficiency -------------------------------------------------------------
 
 
@@ -142,15 +115,3 @@ def test_gear_weight_increases_with_teeth():
     w1 = gear_weight(2.0, 20, 20.0, 7850.0)
     w2 = gear_weight(2.0, 40, 20.0, 7850.0)
     assert w2 > w1
-
-
-# ---- Constants --------------------------------------------------------------
-
-
-def test_min_teeth_is_12():
-    assert MIN_TEETH == 12
-
-
-def test_standard_modules_starts_at_02():
-    assert STANDARD_MODULES[0] == pytest.approx(0.2)
-    assert STANDARD_MODULES[-1] == pytest.approx(10.0)

@@ -26,7 +26,7 @@ import os
 import time
 from bisect import bisect_left, bisect_right
 from concurrent.futures import ProcessPoolExecutor
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 from tqdm import tqdm
 
@@ -41,7 +41,7 @@ from spurGearGenerator.gear_math import (
     pitch_diameter,
     tangential_force,
 )
-from spurGearGenerator.materials import GearMaterial, get_all_materials, get_material
+from spurGearGenerator.materials import MATERIAL_BY_KEY, MATERIALS, GearMaterial
 from spurGearGenerator.models import (
     GearboxSolution,
     GearConfig,
@@ -71,7 +71,7 @@ _PRUNE_MARGIN = 0.05
 
 
 # ---------------------------------------------------------------------------
-# Phase 1: Build unique-ratio index  (unchanged)
+# Phase 1: Build unique-ratio index
 # ---------------------------------------------------------------------------
 
 
@@ -157,7 +157,7 @@ def _precompute(
 ) -> _Precomputed:
     """Build all precomputed coefficients.  Called once per solve()."""
     # Precompute Lewis Y factors for all tooth counts
-    y_factors = [0.0] * (max_teeth + 3)  # +3 for z2+2 in weight
+    y_factors = [0.0] * (max_teeth + 1)
     for z in range(MIN_TEETH, max_teeth + 1):
         y_factors[z] = lewis_form_factor(z)
 
@@ -185,8 +185,6 @@ def _precompute(
                 for z1, z2 in tooth_pairs:
                     y1 = y_factors[z1]
                     y2 = y_factors[z2]
-                    if y1 <= 0 or y2 <= 0:
-                        continue
 
                     # Face-width coefficients: b = k_b * T / m^2
                     k_b_p = 2000.0 / (z1 * sigma_p * y1)
@@ -397,12 +395,11 @@ def _update_results(
     # Weight top-K (want smallest weights -> max-heap with negation)
     if len(results.top_weight) < _TOP_K:
         heapq.heappush(results.top_weight, (-total_weight, c, total_eff, path))
-        if total_weight < results.best_weight:
-            results.best_weight = total_weight
     elif total_weight < -results.top_weight[0][0]:
         heapq.heapreplace(results.top_weight, (-total_weight, c, total_eff, path))
-        if total_weight < results.best_weight:
-            results.best_weight = total_weight
+
+    if total_weight < results.best_weight:
+        results.best_weight = total_weight
 
     # Efficiency top-K (want largest -> min-heap)
     if len(results.top_eff) < _TOP_K:
@@ -803,7 +800,7 @@ def _reconstruct_solution(
 
 
 # ---------------------------------------------------------------------------
-# Ranking  (unchanged)
+# Ranking
 # ---------------------------------------------------------------------------
 
 
@@ -867,7 +864,8 @@ def _worker_tree_search(
     """Search one stage-0 subtree in a worker process."""
     r0_idx, n_stages, r_low, r_high, input_torque = args
     precomp = _w_precomp
-    assert precomp is not None
+    if precomp is None:
+        raise RuntimeError("Worker not initialized")
 
     r0 = precomp.unique_ratios[r0_idx]
     n_mats = precomp.n_mats
@@ -940,9 +938,9 @@ def solve(
     max_teeth = config.max_teeth_per_gear
 
     if config.materials is not None:
-        materials = tuple(get_material(k) for k in config.materials)
+        materials = tuple(MATERIAL_BY_KEY[k] for k in config.materials)
     else:
-        materials = get_all_materials()
+        materials = MATERIALS
 
     if config.min_module is not None:
         std_modules = tuple(m for m in STANDARD_MODULES if m >= config.min_module)
@@ -953,8 +951,6 @@ def solve(
 
     # Phase 1: build unique-ratio index
     unique_ratios, ratio_map = _build_ratio_data(max_teeth)
-
-    total_tooth_pairs = sum(len(v) for v in ratio_map.values())
 
     if not unique_ratios or not std_modules:
         stats = SolveStats(elapsed_seconds=time.perf_counter() - t0)
@@ -1041,12 +1037,8 @@ def solve(
     elapsed = time.perf_counter() - t0
 
     stats = SolveStats(
-        unique_ratios=len(unique_ratios),
-        tooth_pairs=total_tooth_pairs,
-        material_combinations=len(materials) ** 2,
         subtrees_searched=total_subtrees,
         solutions_evaluated=all_results.evaluations,
-        branches_pruned=all_results.branches_pruned,
         elapsed_seconds=elapsed,
         cpu_cores=num_cores,
     )

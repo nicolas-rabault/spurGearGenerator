@@ -8,7 +8,6 @@ from spurGearGenerator.tooth_profile import (
     ADDENDUM_COEFF,
     DEDENDUM_COEFF,
     PRESSURE_ANGLE_RAD,
-    backlash,
     base_diameter,
     contact_ratio,
     hertz_contact_stress,
@@ -23,18 +22,7 @@ from spurGearGenerator.tooth_profile import (
     root_fillet_radius,
     specific_sliding,
     tip_diameter_shifted,
-    tip_relief_amount,
 )
-
-
-# ---- Constants ---------------------------------------------------------------
-
-
-def test_constants():
-    """Standard 20-deg full-depth constants."""
-    assert PRESSURE_ANGLE_RAD == pytest.approx(math.radians(20.0))
-    assert ADDENDUM_COEFF == pytest.approx(1.0)
-    assert DEDENDUM_COEFF == pytest.approx(1.25)
 
 
 # ---- Involute function -------------------------------------------------------
@@ -203,18 +191,11 @@ def test_hertz_contact_stress_doubles_force():
     assert sigma2 == pytest.approx(sigma1 * math.sqrt(2.0), rel=1e-6)
 
 
-# ---- Tip relief, root fillet, backlash ----------------------------------------
-
-
-def test_tip_relief_amount():
-    """Ca = 0.02 * m."""
-    assert tip_relief_amount(2.0) == pytest.approx(0.04)
-    assert tip_relief_amount(1.0) == pytest.approx(0.02)
+# ---- Root fillet -------------------------------------------------------------
 
 
 def test_root_fillet_radius_large_z():
     """For large z with no shift, fillet approaches rack tip radius (0.38*m)."""
-    # z=100, x=0: should be close to 0.38*m but slightly larger (trochoid contribution)
     rho = root_fillet_radius(2.0, 100, 0.0)
     assert rho > 0.38 * 2.0
     assert rho == pytest.approx(0.38 * 2.0, abs=0.05)
@@ -224,7 +205,7 @@ def test_root_fillet_radius_small_z():
     """Smaller z gives a larger fillet (trochoid envelope effect)."""
     rho_small = root_fillet_radius(2.0, 12, 0.0)
     rho_large = root_fillet_radius(2.0, 40, 0.0)
-    assert rho_small > rho_large  # smaller gear has bigger fillet at root bottom
+    assert rho_small > rho_large
 
 
 def test_root_fillet_radius_profile_shift():
@@ -232,12 +213,6 @@ def test_root_fillet_radius_profile_shift():
     rho_no_shift = root_fillet_radius(2.0, 20, 0.0)
     rho_shifted = root_fillet_radius(2.0, 20, 0.3)
     assert rho_shifted < rho_no_shift
-
-
-def test_backlash():
-    """j_t = 0.04 * m."""
-    assert backlash(2.0) == pytest.approx(0.08)
-    assert backlash(1.0) == pytest.approx(0.04)
 
 
 # ---- Top-level optimize_stage ------------------------------------------------

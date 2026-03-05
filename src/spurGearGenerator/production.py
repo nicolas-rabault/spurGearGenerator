@@ -9,7 +9,7 @@ import math
 
 from dataclasses import dataclass, field
 
-from spurGearGenerator.materials import get_material
+from spurGearGenerator.materials import MATERIAL_BY_KEY
 from spurGearGenerator.models import (
     GearboxSolution,
     GearResult,
@@ -104,9 +104,7 @@ def quality_grade(module: float, material_key: str) -> tuple[int, str]:
 
 def surface_finish(grade: int) -> str:
     """Recommended flank surface roughness for a given quality grade."""
-    if grade <= 5:
-        return "Ra \u2264 0.4 \u03bcm (flanks)"
-    elif grade <= 6:
+    if grade <= 6:
         return "Ra \u2264 0.8 \u03bcm (flanks)"
     elif grade <= 7:
         return "Ra \u2264 1.6 \u03bcm (flanks)"
@@ -140,15 +138,15 @@ def iso_1328_tolerances(
     """
     # Base tolerances for quality grade 5
     fpt_5 = 0.3 * module + 0.003 * d_ref + 4.0
-    fa_5 = 2.5 + 0.7 * math.sqrt(max(module, 0.01))
-    fb_5 = 3.0 + 0.6 * math.sqrt(max(face_width, 0.01))
-    fr_5 = 5.0 + 0.7 * math.sqrt(max(d_ref, 0.01))
+    fa_5 = 2.5 + 0.7 * math.sqrt(module)
+    fb_5 = 3.0 + 0.6 * math.sqrt(face_width)
+    fr_5 = 5.0 + 0.7 * math.sqrt(d_ref)
 
     # Scale factor: each grade step multiplies by sqrt(2)
     scale = math.sqrt(2) ** (grade - 5)
 
     fpt = fpt_5 * scale
-    fp = fpt * 0.7 * math.sqrt(max(teeth, 1))
+    fp = fpt * 0.7 * math.sqrt(teeth)
     fa = fa_5 * scale
     fb = fb_5 * scale
     fr = fr_5 * scale
@@ -257,7 +255,7 @@ def _format_gear_spec(
         root_fillet = None
         tip_relief = None
 
-    tip_d = gear.tip_diameter_corrected_mm or gear.addendum_diameter_mm
+    tip_d = gear.tip_diameter_corrected_mm if gear.tip_diameter_corrected_mm is not None else gear.addendum_diameter_mm
 
     lines.append(
         f"    GEAR {gear_letter} \u2014 Stage {stage_num} {role}"
@@ -334,7 +332,7 @@ def _format_part(part: _Part) -> str:
         ref_module = max(g.gear.module for g in part.gears)
 
     spec = MANUFACTURING_SPECS.get(ref_gear.material, {})
-    mat = get_material(ref_gear.material)
+    mat = MATERIAL_BY_KEY[ref_gear.material]
     q, method = quality_grade(ref_module, ref_gear.material)
     finish = surface_finish(q)
 

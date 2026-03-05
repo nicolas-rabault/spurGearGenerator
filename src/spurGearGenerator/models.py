@@ -1,7 +1,5 @@
-"""Pydantic models for JSON configuration input and structured result output."""
-
 import json
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 
 from pydantic import BaseModel, Field, field_validator
@@ -13,41 +11,14 @@ from pydantic import BaseModel, Field, field_validator
 
 
 class GearConfig(BaseModel):
-    """Top-level JSON configuration for the gear solver."""
-
-    target_ratio: float = Field(..., gt=0, description="Desired total gear reduction ratio")
-    reduction_margin: float = Field(
-        default=5.0,
-        ge=0,
-        le=50,
-        description="Acceptable margin around target ratio in percent",
-    )
-    input_torque: float = Field(..., gt=0, description="Peak input torque in Nm")
-    max_teeth_per_gear: int = Field(
-        default=150,
-        ge=20,
-        le=500,
-        description="Maximum number of teeth on any single gear",
-    )
-    axis_margin: float = Field(
-        ...,
-        ge=0,
-        description="Minimum clearance between adjacent-stage axes in mm",
-    )
-    min_output_root_diameter: float | None = Field(
-        default=None,
-        ge=0,
-        description="Minimum root diameter for the last output wheel in mm",
-    )
-    min_module: float | None = Field(
-        default=None,
-        gt=0,
-        description="Minimum standard module to consider (filters smaller modules)",
-    )
-    materials: list[str] | None = Field(
-        default=None,
-        description="List of material keys to consider (e.g. ['pom', 'nylon'])",
-    )
+    target_ratio: float = Field(..., gt=0)
+    reduction_margin: float = Field(default=5.0, ge=0)
+    input_torque: float = Field(..., gt=0)
+    max_teeth_per_gear: int = Field(default=150, ge=5)
+    axis_margin: float = Field(..., ge=0)
+    min_output_root_diameter: float | None = Field(default=None, ge=0)
+    min_module: float | None = Field(default=None, gt=0)
+    materials: list[str] | None = Field(default=None)
 
     @field_validator("materials")
     @classmethod
@@ -66,7 +37,6 @@ class GearConfig(BaseModel):
 
 
 def load_config(path: str | Path) -> GearConfig:
-    """Load and validate a JSON configuration file."""
     with open(path) as f:
         data = json.load(f)
     return GearConfig(**data)
@@ -78,8 +48,6 @@ def load_config(path: str | Path) -> GearConfig:
 
 
 class GearResult(BaseModel):
-    """Description of a single gear in a solution."""
-
     role: str  # "pinion" or "wheel"
     teeth: int
     module: float  # mm
@@ -102,8 +70,6 @@ class GearResult(BaseModel):
 
 
 class StageGeometry(BaseModel):
-    """Optimized meshing geometry for a gear pair (computed by generate)."""
-
     profile_shift_pinion: float
     profile_shift_wheel: float
     operating_pressure_angle_deg: float
@@ -120,8 +86,6 @@ class StageGeometry(BaseModel):
 
 
 class StageResult(BaseModel):
-    """One gear-mesh stage in a gearbox solution."""
-
     stage_number: int
     pinion: GearResult
     wheel: GearResult
@@ -132,8 +96,6 @@ class StageResult(BaseModel):
 
 
 class SpringResult(BaseModel):
-    """Rubber torsion spring dimensions (computed by generate --spring)."""
-
     max_torque_nm: float
     max_angle_deg: float
     outer_diameter_mm: float
@@ -147,8 +109,6 @@ class SpringResult(BaseModel):
 
 
 class GearboxSolution(BaseModel):
-    """A complete multi-stage gearbox solution."""
-
     stages: list[StageResult]
     total_ratio: float
     ratio_error_pct: float  # (actual - target) / target * 100
@@ -165,13 +125,7 @@ class GearboxSolution(BaseModel):
 
 @dataclass
 class SolveStats:
-    """Metrics collected during a solve run."""
-
-    unique_ratios: int = 0
-    tooth_pairs: int = 0
-    material_combinations: int = 0
     subtrees_searched: int = 0
     solutions_evaluated: int = 0
-    branches_pruned: int = 0
     elapsed_seconds: float = 0.0
     cpu_cores: int = 1

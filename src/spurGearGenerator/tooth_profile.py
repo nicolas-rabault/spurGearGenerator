@@ -1,6 +1,5 @@
 """Involute gear tooth geometry, profile shift optimization, and profile generation.
 
-All functions are pure (no side effects). Follows the same conventions as gear_math.py.
 Units: mm for lengths, radians for internal angles, degrees for API boundaries,
 MPa for stress, N for forces.
 """
@@ -8,6 +7,7 @@ MPa for stress, N for forces.
 import math
 
 from spurGearGenerator.gear_math import PRESSURE_ANGLE_RAD, tangential_force
+from spurGearGenerator.materials import MATERIAL_BY_KEY
 from spurGearGenerator.models import StageGeometry
 
 # ---------------------------------------------------------------------------
@@ -16,22 +16,10 @@ from spurGearGenerator.models import StageGeometry
 
 ADDENDUM_COEFF: float = 1.0  # ha*
 DEDENDUM_COEFF: float = 1.25  # hf*
-CLEARANCE_COEFF: float = 0.25  # c* = hf* - ha*
 RACK_TIP_RADIUS_COEFF: float = 0.38  # rho_f / m for standard 20-deg full-depth
 TIP_RELIEF_COEFF: float = 0.02  # Ca = 0.02 * m (conservative default)
 BACKLASH_COEFF: float = 0.04  # j_t = 0.04 * m
 POISSON_RATIO: float = 0.3  # Simplified: same for all materials
-
-_YOUNGS_MODULUS: dict[str, float] = {
-    "steel_mild": 210_000.0,
-    "steel_alloy": 210_000.0,
-    "steel_hardened": 210_000.0,
-    "brass": 100_000.0,
-    "bronze": 110_000.0,
-    "aluminum": 69_000.0,
-    "nylon": 3_000.0,
-    "pom": 2_800.0,
-}
 
 # ---------------------------------------------------------------------------
 # Involute function
@@ -43,24 +31,20 @@ def inv(alpha_rad: float) -> float:
     return math.tan(alpha_rad) - alpha_rad
 
 
-def inv_inverse(y: float, tol: float = 1e-12, max_iter: int = 50) -> float:
+def inv_inverse(y: float) -> float:
     """Numerical inversion of the involute function using Newton-Raphson.
 
     Given y = inv(alpha), find alpha.
     """
     if y <= 0.0:
         return 0.0
-    # Starting guess: cubic approximation good for small y
     alpha = (3.0 * y) ** (1.0 / 3.0)
-    for _ in range(max_iter):
+    for _ in range(15):
         ta = math.tan(alpha)
-        f = ta - alpha - y
         fp = ta * ta  # derivative: sec^2(alpha) - 1 = tan^2(alpha)
-        if fp == 0.0:
-            break
-        delta = f / fp
+        delta = (ta - alpha - y) / fp
         alpha -= delta
-        if abs(delta) < tol:
+        if abs(delta) < 1e-12:
             break
     return alpha
 
@@ -97,12 +81,11 @@ def optimize_profile_shifts(
     x_sum = x1_min + x2_min
 
     if x_sum == 0.0:
-        # Both gears have enough teeth: no shift needed
         return (0.0, 0.0)
 
     # Bisect on x1 in [x1_min, x_sum - x2_min] to balance specific sliding
     lo = x1_min
-    hi = x_sum  # x2 = x_sum - x1 >= 0 (x2_min could be 0)
+    hi = x_sum - x2_min
 
     def sliding_imbalance(x1: float) -> float:
         x2 = x_sum - x1
@@ -110,7 +93,7 @@ def optimize_profile_shifts(
         nu1, nu2 = specific_sliding(z1, z2, x1, x2, alpha_w)
         return abs(nu1) - abs(nu2)
 
-    for _ in range(60):
+    for _ in range(30):
         mid = (lo + hi) / 2.0
         if sliding_imbalance(mid) > 0:
             hi = mid
@@ -188,7 +171,7 @@ def tip_diameter_corrected(
     a_w = operating_center_distance(module, z, z_mate, alpha_rad, alpha_w_rad)
     k = (a_w - a_ref) / module  # center distance increase coefficient
     x_sum = x + x_mate
-    # Tip shortening split equally between the two gears
+    # Tip shortening applied to each gear independently
     shortening = (x_sum - k) * module
     da_raw = tip_diameter_shifted(module, z, x)
     return da_raw - shortening
@@ -249,23 +232,18 @@ def specific_sliding(
     Uses the Maag formulation with roll angles on the line of action.
     Returns (nu_tip_1, nu_tip_2).
     """
-    # Addendum angles (roll angle at tip)
     cos_a = math.cos(alpha_rad)
     da1_over_db1 = (z1 + 2.0 * ADDENDUM_COEFF + 2.0 * x1) / (z1 * cos_a)
     da2_over_db2 = (z2 + 2.0 * ADDENDUM_COEFF + 2.0 * x2) / (z2 * cos_a)
 
-    # Clamp to avoid sqrt of negative for very small gears
     xi_a1 = math.sqrt(max(0.0, da1_over_db1**2 - 1.0))
     xi_a2 = math.sqrt(max(0.0, da2_over_db2**2 - 1.0))
 
     tan_aw = math.tan(alpha_w_rad)
 
-    # At tip of gear 1, the mate's roll angle:
     xi_f2 = (z1 + z2) / z2 * tan_aw - xi_a1 * z1 / z2
-    # At tip of gear 2, the mate's roll angle:
     xi_f1 = (z1 + z2) / z1 * tan_aw - xi_a2 * z2 / z1
 
-    # Specific sliding
     nu_tip_1 = 1.0 - (xi_f2 * z2) / (xi_a1 * z1) if xi_a1 * z1 != 0.0 else 0.0
     nu_tip_2 = 1.0 - (xi_f1 * z1) / (xi_a2 * z2) if xi_a2 * z2 != 0.0 else 0.0
 
@@ -294,8 +272,8 @@ def hertz_contact_stress(
     sigma_H = sqrt(Fn / (b * rho_eq) * E_eq / (2*pi))
     where Fn = Ft / cos(alpha_w).
     """
-    e1 = _YOUNGS_MODULUS.get(mat_key_1, 210_000.0)
-    e2 = _YOUNGS_MODULUS.get(mat_key_2, 210_000.0)
+    e1 = MATERIAL_BY_KEY[mat_key_1].youngs_modulus
+    e2 = MATERIAL_BY_KEY[mat_key_2].youngs_modulus
     nu = POISSON_RATIO
 
     # Equivalent elastic modulus
@@ -310,26 +288,19 @@ def hertz_contact_stress(
     rho1 = dw1 / 2.0 * sin_aw
     rho2 = dw2 / 2.0 * sin_aw
 
-    if rho1 <= 0.0 or rho2 <= 0.0:
-        return 0.0
-
     rho_eq = 1.0 / (1.0 / rho1 + 1.0 / rho2)
 
     # Normal force
-    fn = ft_n / math.cos(alpha_w_rad) if math.cos(alpha_w_rad) > 0.0 else ft_n
+    cos_aw = math.cos(alpha_w_rad)
+    fn = ft_n / cos_aw
 
-    sigma_h = math.sqrt(max(0.0, fn / (face_width_mm * rho_eq) * e_eq / (2.0 * math.pi)))
+    sigma_h = math.sqrt(fn / (face_width_mm * rho_eq) * e_eq / (2.0 * math.pi))
     return sigma_h
 
 
 # ---------------------------------------------------------------------------
-# Tip relief and root fillet
+# Root fillet
 # ---------------------------------------------------------------------------
-
-
-def tip_relief_amount(module: float) -> float:
-    """Default tip relief: Ca = 0.02 * m."""
-    return TIP_RELIEF_COEFF * module
 
 
 def root_fillet_radius(
@@ -356,11 +327,6 @@ def root_fillet_radius(
         return rho_a0
     rho_trochoid = h * h / (h + r_pitch)
     return rho_trochoid + rho_a0
-
-
-def backlash(module: float) -> float:
-    """Circumferential backlash: j_t = 0.04 * m."""
-    return BACKLASH_COEFF * module
 
 
 # ---------------------------------------------------------------------------
@@ -398,12 +364,11 @@ def optimize_stage(
     sigma_h = hertz_contact_stress(ft, face_width_mm, module, z1, z2, alpha_w, a_w, mat_key_1, mat_key_2)
 
     # Tip relief and fillet
-    ca = tip_relief_amount(module)
     rho_f1 = root_fillet_radius(module, z1, x1, alpha)
     rho_f2 = root_fillet_radius(module, z2, x2, alpha)
 
-    # Backlash
-    jt = backlash(module)
+    ca = TIP_RELIEF_COEFF * module
+    jt = BACKLASH_COEFF * module
 
     return StageGeometry(
         profile_shift_pinion=round(x1, 6),

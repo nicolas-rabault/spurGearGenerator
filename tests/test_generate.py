@@ -77,7 +77,7 @@ def test_load_solution_invalid_number(tmp_path):
         load_solution(results_path, 5)
 
 
-def test_optimize_solution_populates_geometry(tmp_path):
+def test_optimize_solution_populates_geometry():
     sol = _make_solution()
     optimized = optimize_solution(sol)
     for stage in optimized.stages:
@@ -86,7 +86,7 @@ def test_optimize_solution_populates_geometry(tmp_path):
         assert stage.geometry.operating_pressure_angle_deg >= 20.0
 
 
-def test_optimize_solution_populates_gear_fields(tmp_path):
+def test_optimize_solution_populates_gear_fields():
     sol = _make_solution()
     optimized = optimize_solution(sol)
     for stage in optimized.stages:
@@ -98,7 +98,7 @@ def test_optimize_solution_populates_gear_fields(tmp_path):
             assert gear.tooth_thickness_ref_mm is not None
 
 
-def test_optimize_solution_preserves_existing(tmp_path):
+def test_optimize_solution_preserves_existing():
     sol = _make_solution()
     optimized = optimize_solution(sol)
     # Original fields should be preserved

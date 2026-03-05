@@ -108,6 +108,11 @@ def _mat_code(key: str) -> str:
     return _MAT_ABBREV.get(key, key)
 
 
+def _mat_label(code: str) -> str:
+    """Return human-readable name for a material abbreviation code."""
+    return _MAT_LABEL.get(code, code)
+
+
 def _stage_str(sol: GearboxSolution) -> str:
     """Build compact stage description string."""
     parts = []
@@ -138,8 +143,8 @@ def _display_compact(solutions: list[GearboxSolution]) -> None:
         click.echo(f"Materials: {legend}\n")
 
     # Split by ranking group
-    by_weight = [s for s in solutions if "weight" in s.ranking_tag]
-    by_eff = [s for s in solutions if "efficiency" in s.ranking_tag]
+    by_weight = [s for s in solutions if s.ranking_tag == "weight"]
+    by_eff = [s for s in solutions if s.ranking_tag == "efficiency"]
 
     headers = ["#", "Ratio", "Err%", "Eff%", "Weight", "Stages"]
     idx = 1
@@ -176,18 +181,13 @@ def _display_compact(solutions: list[GearboxSolution]) -> None:
         click.echo(tabulate(rows, headers=headers, tablefmt="simple"))
 
 
-def _fmt_num(n: int) -> str:
-    """Format a large number with comma separators."""
-    return f"{n:,}"
-
-
 def _display_stats(stats: SolveStats) -> None:
     """Print solver performance metrics."""
     click.echo()
     click.echo("\u2500" * 52)
     click.echo(
-        f"Evaluated {_fmt_num(stats.solutions_evaluated)} feasible configurations "
-        f"across {_fmt_num(stats.subtrees_searched)} subtrees"
+        f"Evaluated {stats.solutions_evaluated:,} feasible configurations "
+        f"across {stats.subtrees_searched:,} subtrees"
     )
     click.echo(
         f"Completed in {stats.elapsed_seconds:.2f}s "
@@ -361,11 +361,6 @@ def show(results_file: str, number: int):
     click.echo(format_solution(sol, number))
 
 
-def _mat_label(code: str) -> str:
-    """Return human-readable name for a material abbreviation code."""
-    return _MAT_LABEL.get(code, code)
-
-
 # ---------------------------------------------------------------------------
 # generate command
 # ---------------------------------------------------------------------------
@@ -393,7 +388,7 @@ def generate_cmd(
     onshape: str | None,
     spring: float | None,
 ):
-    """Generate optimized geometry, DXF, and STEP files for a solution."""
+    """Generate optimized tooth geometry and production files for a solution."""
     from spurGearGenerator.generate import generate
     from spurGearGenerator.onshape import OnshapeError, validate_onshape_env
 
