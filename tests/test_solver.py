@@ -153,3 +153,37 @@ def test_at_most_20_solutions():
     config = _make_config(target_ratio=3.0, max_teeth_per_gear=80)
     solutions, _ = solve(config, max_stages=1)
     assert len(solutions) <= 20
+
+
+# ---- Min output root diameter -----------------------------------------------
+
+
+def test_min_output_root_diameter_constraint():
+    """All output wheels must have root diameter >= min_output_root_diameter."""
+    min_root = 15.0  # mm
+    config = _make_config(target_ratio=3.0, min_output_root_diameter=min_root)
+    solutions, _ = solve(config, max_stages=1)
+    assert len(solutions) > 0
+    for s in solutions:
+        last_wheel = s.stages[-1].wheel
+        root_diam = last_wheel.module * (last_wheel.teeth - 2.5)
+        assert root_diam >= min_root - 1e-6, (
+            f"Root diameter {root_diam:.2f} mm < {min_root} mm"
+        )
+
+
+def test_min_output_root_diameter_restricts_solutions():
+    """A large min root diameter should reduce the number of solutions."""
+    config_no_limit = _make_config(target_ratio=3.0)
+    config_with_limit = _make_config(target_ratio=3.0, min_output_root_diameter=30.0)
+    sols_no_limit, _ = solve(config_no_limit, max_stages=1)
+    sols_with_limit, _ = solve(config_with_limit, max_stages=1)
+    # The constrained set should be no larger (and likely smaller or different)
+    assert len(sols_with_limit) <= len(sols_no_limit)
+
+
+def test_min_output_root_diameter_too_large():
+    """An impossibly large min root diameter should yield no solutions."""
+    config = _make_config(target_ratio=3.0, min_output_root_diameter=1000.0)
+    solutions, _ = solve(config, max_stages=1)
+    assert solutions == []

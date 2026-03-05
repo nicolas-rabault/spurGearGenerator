@@ -34,6 +34,11 @@ class GearConfig(BaseModel):
         ge=0,
         description="Minimum clearance between adjacent-stage axes in mm",
     )
+    min_output_root_diameter: float | None = Field(
+        default=None,
+        ge=0,
+        description="Minimum root diameter for the last output wheel in mm",
+    )
 
 
 def load_config(path: str | Path) -> GearConfig:

@@ -104,6 +104,11 @@ def addendum_diameter(module: float, z: int) -> float:
     return module * (z + 2)
 
 
+def root_diameter(module: float, z: int) -> float:
+    """Root (dedendum) diameter in mm: df = m * (Z - 2.5)."""
+    return module * (z - 2.5)
+
+
 def max_face_width(module: float) -> float:
     """Maximum practical face width in mm: b_max = 12 * m."""
     return MAX_FACE_WIDTH_FACTOR * module

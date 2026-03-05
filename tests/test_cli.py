@@ -95,3 +95,25 @@ def test_cli_show_invalid_number(tmp_path):
 
     result = runner.invoke(main, ["show", out_path, "999"])
     assert result.exit_code != 0
+
+
+# ---- min-output-root-diameter -----------------------------------------------
+
+
+def test_cli_solve_min_output_root_diameter(tmp_path):
+    """--min-output-root-diameter should filter solutions accordingly."""
+    cfg = _write_config(tmp_path)
+    out_path = str(tmp_path / "results.json")
+    runner = CliRunner()
+    result = runner.invoke(
+        main, ["solve", cfg, "--min-output-root-diameter", "15.0", "--output", out_path]
+    )
+    assert result.exit_code == 0
+    assert "solution" in result.output.lower()
+    with open(out_path) as f:
+        data = json.load(f)
+    for sol in data:
+        last_stage = sol["stages"][-1]
+        wheel = last_stage["wheel"]
+        root_diam = wheel["module"] * (wheel["teeth"] - 2.5)
+        assert root_diam >= 15.0 - 1e-6

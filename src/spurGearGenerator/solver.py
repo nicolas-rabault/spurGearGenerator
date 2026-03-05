@@ -142,6 +142,8 @@ class _Precomputed:
     global_min_weight_per_torque: float
     # Minimum clearance between adjacent-stage axes (mm)
     axis_margin: float
+    # Minimum root diameter for the last output wheel (mm); 0.0 = no constraint
+    min_output_root_diameter: float
 
 
 def _precompute(
@@ -150,6 +152,7 @@ def _precompute(
     materials: tuple[GearMaterial, ...],
     max_teeth: int,
     axis_margin: float = 0.0,
+    min_output_root_diameter: float = 0.0,
 ) -> _Precomputed:
     """Build all precomputed coefficients.  Called once per solve()."""
     # Precompute Lewis Y factors for all tooth counts
@@ -222,6 +225,7 @@ def _precompute(
         pair_data=pair_data,
         global_min_weight_per_torque=global_min_w_per_t,
         axis_margin=axis_margin,
+        min_output_root_diameter=min_output_root_diameter,
     )
 
 
@@ -237,6 +241,7 @@ def _fast_find_best_weight(
     mat_w_idx: int,
     min_module: float,
     precomp: _Precomputed,
+    min_output_root_diam: float = 0.0,
 ) -> tuple[float, float, int, int, float, float] | None:
     """Find lightest feasible stage config: (module, face_width, z1, z2, weight, eta).
 
@@ -258,6 +263,9 @@ def _fast_find_best_weight(
     for pc in pair_list:
         # Analytical minimum feasible module
         m_required = max((pc.c_feas * torque) ** (1.0 / 3.0), min_module)
+        # Minimum module for output root diameter constraint: m >= d_root_min / (z2 - 2.5)
+        if min_output_root_diam > 0:
+            m_required = max(m_required, min_output_root_diam / (pc.z2 - 2.5))
 
         idx = bisect_left(std_mods, m_required)
         if idx >= n_mods:
@@ -294,6 +302,7 @@ def _fast_find_best_efficiency(
     mat_w_idx: int,
     min_module: float,
     precomp: _Precomputed,
+    min_output_root_diam: float = 0.0,
 ) -> tuple[float, float, int, int, float, float] | None:
     """Find highest-efficiency feasible stage config.
 
@@ -314,6 +323,9 @@ def _fast_find_best_efficiency(
     # Iterate largest z1 first (highest efficiency)
     for pc in reversed(pair_list):
         m_required = max((pc.c_feas * torque) ** (1.0 / 3.0), min_module)
+        # Minimum module for output root diameter constraint: m >= d_root_min / (z2 - 2.5)
+        if min_output_root_diam > 0:
+            m_required = max(m_required, min_output_root_diam / (pc.z2 - 2.5))
 
         idx = bisect_left(std_mods, m_required)
         if idx >= n_mods:
@@ -590,12 +602,14 @@ def _evaluate_leaf(
 ) -> None:
     """Evaluate the last stage and update top-K results."""
     n_mats = precomp.n_mats
+    min_root = precomp.min_output_root_diameter
 
     for mat_idx, frontier in dp_w.items():
         for state in frontier:
             for next_mat in range(n_mats):
                 result = _fast_find_best_weight(
-                    ratio, torque, mat_idx, next_mat, state.last_module, precomp
+                    ratio, torque, mat_idx, next_mat, state.last_module, precomp,
+                    min_output_root_diam=min_root,
                 )
                 if result is None:
                     continue
@@ -609,7 +623,8 @@ def _evaluate_leaf(
         for state in frontier:
             for next_mat in range(n_mats):
                 result = _fast_find_best_efficiency(
-                    ratio, torque, mat_idx, next_mat, state.last_module, precomp
+                    ratio, torque, mat_idx, next_mat, state.last_module, precomp,
+                    min_output_root_diam=min_root,
                 )
                 if result is None:
                     continue
@@ -936,7 +951,10 @@ def solve(
         return [], stats
 
     # Phase 1.5: precompute coefficients
-    precomp = _precompute(unique_ratios, ratio_map, materials, max_teeth, config.axis_margin)
+    precomp = _precompute(
+        unique_ratios, ratio_map, materials, max_teeth, config.axis_margin,
+        min_output_root_diameter=config.min_output_root_diameter or 0.0,
+    )
 
     # Phase 2+3: fused tree search per stage count
     all_results = _TreeResults(

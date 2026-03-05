@@ -57,9 +57,23 @@ def main():
     help="Path for JSON output file (default: <config_name>_results.json).",
 )
 @click.option("--verbose", "-v", is_flag=True, help="Enable verbose logging.")
-def solve_cmd(config_file: str, stages: int, output: str | None, verbose: bool):
+@click.option(
+    "--min-output-root-diameter",
+    type=float,
+    default=None,
+    help="Minimum root diameter for the last output wheel in mm.",
+)
+def solve_cmd(
+    config_file: str,
+    stages: int,
+    output: str | None,
+    verbose: bool,
+    min_output_root_diameter: float | None,
+):
     """Solve gear combinations from a JSON configuration file."""
     config = load_config(config_file)
+    if min_output_root_diameter is not None:
+        config.min_output_root_diameter = min_output_root_diameter
 
     if verbose:
         click.echo(
