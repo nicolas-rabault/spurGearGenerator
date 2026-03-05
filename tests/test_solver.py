@@ -187,3 +187,69 @@ def test_min_output_root_diameter_too_large():
     config = _make_config(target_ratio=3.0, min_output_root_diameter=1000.0)
     solutions, _ = solve(config, max_stages=1)
     assert solutions == []
+
+
+# ---- Min module ---------------------------------------------------------------
+
+
+def test_min_module_filters_solutions():
+    """All stages should use module >= min_module."""
+    min_mod = 1.0
+    config = _make_config(target_ratio=3.0, min_module=min_mod)
+    solutions, _ = solve(config, max_stages=1)
+    assert len(solutions) > 0
+    for s in solutions:
+        for stage in s.stages:
+            assert stage.pinion.module >= min_mod, (
+                f"Pinion module {stage.pinion.module} < min_module {min_mod}"
+            )
+            assert stage.wheel.module >= min_mod, (
+                f"Wheel module {stage.wheel.module} < min_module {min_mod}"
+            )
+
+
+def test_min_module_restricts_solutions():
+    """A large min module should produce different (larger module) solutions."""
+    min_mod = 2.0
+    config = _make_config(target_ratio=3.0, min_module=min_mod)
+    solutions, _ = solve(config, max_stages=1)
+    assert len(solutions) > 0
+    for s in solutions:
+        for stage in s.stages:
+            assert stage.pinion.module >= min_mod
+
+
+def test_min_module_too_large():
+    """An impossibly large min module should yield no solutions."""
+    config = _make_config(target_ratio=3.0, min_module=999.0)
+    solutions, _ = solve(config, max_stages=1)
+    assert solutions == []
+
+
+# ---- Materials filter ---------------------------------------------------------
+
+
+def test_materials_filter():
+    """All gears should use only the specified materials."""
+    config = _make_config(target_ratio=3.0, materials=["pom"])
+    solutions, _ = solve(config, max_stages=1)
+    assert len(solutions) > 0
+    for s in solutions:
+        for stage in s.stages:
+            assert stage.pinion.material == "pom"
+            assert stage.wheel.material == "pom"
+
+
+def test_materials_filter_restricts_solutions():
+    """Restricting materials should reduce or change the solution set."""
+    config_all = _make_config(target_ratio=3.0)
+    config_one = _make_config(target_ratio=3.0, materials=["pom"])
+    sols_all, _ = solve(config_all, max_stages=1)
+    sols_one, _ = solve(config_one, max_stages=1)
+    assert len(sols_one) <= len(sols_all)
+
+
+def test_materials_invalid_key():
+    """Unknown material keys should raise a validation error."""
+    with pytest.raises(Exception, match="Unknown material key"):
+        _make_config(target_ratio=3.0, materials=["unobtainium"])

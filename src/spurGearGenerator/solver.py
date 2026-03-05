@@ -41,7 +41,7 @@ from spurGearGenerator.gear_math import (
     pitch_diameter,
     tangential_force,
 )
-from spurGearGenerator.materials import GearMaterial, get_all_materials
+from spurGearGenerator.materials import GearMaterial, get_all_materials, get_material
 from spurGearGenerator.models import (
     GearboxSolution,
     GearConfig,
@@ -153,6 +153,7 @@ def _precompute(
     max_teeth: int,
     axis_margin: float = 0.0,
     min_output_root_diameter: float = 0.0,
+    std_modules: tuple[float, ...] = STANDARD_MODULES,
 ) -> _Precomputed:
     """Build all precomputed coefficients.  Called once per solve()."""
     # Precompute Lewis Y factors for all tooth counts
@@ -219,7 +220,7 @@ def _precompute(
 
     return _Precomputed(
         unique_ratios=unique_ratios,
-        std_modules=STANDARD_MODULES,
+        std_modules=std_modules,
         materials=materials,
         n_mats=n_mats,
         pair_data=pair_data,
@@ -938,7 +939,16 @@ def solve(
     r_high = target * (1.0 + margin)
     max_teeth = config.max_teeth_per_gear
 
-    materials = get_all_materials()
+    if config.materials is not None:
+        materials = tuple(get_material(k) for k in config.materials)
+    else:
+        materials = get_all_materials()
+
+    if config.min_module is not None:
+        std_modules = tuple(m for m in STANDARD_MODULES if m >= config.min_module)
+    else:
+        std_modules = STANDARD_MODULES
+
     num_cores = os.cpu_count() or 1
 
     # Phase 1: build unique-ratio index
@@ -946,7 +956,7 @@ def solve(
 
     total_tooth_pairs = sum(len(v) for v in ratio_map.values())
 
-    if not unique_ratios:
+    if not unique_ratios or not std_modules:
         stats = SolveStats(elapsed_seconds=time.perf_counter() - t0)
         return [], stats
 
@@ -954,6 +964,7 @@ def solve(
     precomp = _precompute(
         unique_ratios, ratio_map, materials, max_teeth, config.axis_margin,
         min_output_root_diameter=config.min_output_root_diameter or 0.0,
+        std_modules=std_modules,
     )
 
     # Phase 2+3: fused tree search per stage count

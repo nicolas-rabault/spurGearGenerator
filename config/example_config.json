@@ -3,5 +3,7 @@
   "reduction_margin": 3.0,
   "input_torque": 0.5,
   "max_teeth_per_gear": 100,
-  "axis_margin": 1.0
+  "axis_margin": 1.0,
+  "min_module": 0.5,
+  "materials": ["pom", "nylon"]
 }

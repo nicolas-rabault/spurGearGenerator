@@ -4,7 +4,7 @@ import json
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 
 # ---------------------------------------------------------------------------
@@ -39,6 +39,30 @@ class GearConfig(BaseModel):
         ge=0,
         description="Minimum root diameter for the last output wheel in mm",
     )
+    min_module: float | None = Field(
+        default=None,
+        gt=0,
+        description="Minimum standard module to consider (filters smaller modules)",
+    )
+    materials: list[str] | None = Field(
+        default=None,
+        description="List of material keys to consider (e.g. ['pom', 'nylon'])",
+    )
+
+    @field_validator("materials")
+    @classmethod
+    def _validate_material_keys(cls, v: list[str] | None) -> list[str] | None:
+        if v is None:
+            return v
+        from spurGearGenerator.materials import MATERIAL_BY_KEY
+
+        unknown = [k for k in v if k not in MATERIAL_BY_KEY]
+        if unknown:
+            valid = sorted(MATERIAL_BY_KEY.keys())
+            raise ValueError(
+                f"Unknown material key(s): {unknown}. Valid keys: {valid}"
+            )
+        return v
 
 
 def load_config(path: str | Path) -> GearConfig:

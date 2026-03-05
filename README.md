@@ -52,17 +52,21 @@ Create a JSON file describing your requirements:
   "reduction_margin": 3.0,
   "input_torque": 0.5,
   "max_teeth_per_gear": 100,
-  "axis_margin": 1.0
+  "axis_margin": 1.0,
+  "min_module": 0.5,
+  "materials": ["pom", "nylon"]
 }
 ```
 
-| Field                | Description                                          | Default    |
-| -------------------- | ---------------------------------------------------- | ---------- |
-| `target_ratio`       | Desired total gear reduction ratio                   | (required) |
-| `reduction_margin`   | Acceptable margin around target ratio (%)            | 5.0        |
-| `input_torque`       | Peak input torque from the motor (Nm)                | (required) |
-| `max_teeth_per_gear` | Maximum teeth on any single gear                     | 150        |
-| `axis_margin`        | Minimum clearance between adjacent-stage axes (mm)   | (required) |
+| Field                      | Description                                          | Default    |
+| -------------------------- | ---------------------------------------------------- | ---------- |
+| `target_ratio`             | Desired total gear reduction ratio                   | (required) |
+| `reduction_margin`         | Acceptable margin around target ratio (%)            | 5.0        |
+| `input_torque`             | Peak input torque from the motor (Nm)                | (required) |
+| `max_teeth_per_gear`       | Maximum teeth on any single gear                     | 150        |
+| `axis_margin`              | Minimum clearance between adjacent-stage axes (mm)   | (required) |
+| `min_module`               | Minimum standard module to consider (mm)             | all        |
+| `materials`                | List of material keys to use (see below)             | all        |
 
 ### What the solver does
 
@@ -80,7 +84,16 @@ Gears sharing a shaft (wheel of stage N + pinion of stage N+1) must use the same
 
 ### Available materials
 
-Steel (mild, alloy, hardened), Brass, Bronze, Aluminum, Nylon, POM/Delrin
+| Key              | Material                   |
+| ---------------- | -------------------------- |
+| `steel_mild`     | Mild Steel (AISI 1020)     |
+| `steel_alloy`    | Alloy Steel (AISI 4140)    |
+| `steel_hardened`  | Hardened Steel (case-hardened) |
+| `brass`          | Brass (C360)               |
+| `bronze`         | Phosphor Bronze            |
+| `aluminum`       | Aluminum (6061-T6)         |
+| `nylon`          | Nylon (PA6)                |
+| `pom`            | POM / Delrin               |
 
 ### Spring Generation
 
