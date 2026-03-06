@@ -1,0 +1,106 @@
+Solution #1 — 4-stage gearbox
+====================================================
+Ratio: 44.1056 (-1.99%)   Weight: 35.63 g
+Torque out: 3.893 Nm
+
+── Stage 1 (ratio 2.1765) ──────────────────────────────
+
+Parameters
+Gear      Depth (mm)    Teeth    Module (mm)    Pressure °    Root fillet (mm)    Tip relief (mm)    Backlash (mm)  Dedendum       Addendum
+------  ------------  -------  -------------  ------------  ------------------  -----------------  ---------------  -------------  ------------
+Pinion          2.31       17            0.2         20.03               0.097              0.004            0.008  1.2443 (1.25)  1.0057 (1.0)
+Wheel           2.31       37            0.2         20.03               0.086              0.004            0.008  1.2500 (1.25)  1.0000 (1.0)
+
+Metrics
+  Materials:        Hardened Steel / Hardened Steel
+  Torque in:        0.090 Nm
+  Efficiency:       98.65%
+  Lewis stress (Pinion): 380 / 380 MPa (100%)
+  Lewis stress (Wheel ): 302 / 380 MPa (79%)
+  Diameters (Pinion):  Øpitch=3.40  Øtip=3.80  weight=0.21 g
+  Diameters (Wheel ):  Øpitch=7.40  Øtip=7.80  weight=0.87 g
+  Center distance:  5.40 mm
+  Contact ratio:    1.604
+  Hertz stress:     1499.4 MPa
+  Specific sliding: pinion=0.205  wheel=0.953
+  Profile shift:    x1=0.0057  x2=0.0000
+
+── Stage 2 (ratio 2.4167) ──────────────────────────────
+
+Parameters
+Gear      Depth (mm)    Teeth    Module (mm)    Pressure °    Root fillet (mm)    Tip relief (mm)    Backlash (mm)  Dedendum       Addendum
+------  ------------  -------  -------------  ------------  ------------------  -----------------  ---------------  -------------  ------------
+Pinion          2.19       12            0.4         22.05               0.181              0.008            0.016  0.9519 (1.25)  1.2910 (1.0)
+Wheel           2.19       29            0.4         22.05               0.178              0.008            0.016  1.2500 (1.25)  0.9929 (1.0)
+
+Metrics
+  Materials:        Hardened Steel / Hardened Steel
+  Torque in:        0.196 Nm
+  Efficiency:       98.15%
+  Lewis stress (Pinion): 380 / 380 MPa (100%)
+  Lewis stress (Wheel ): 262 / 380 MPa (69%)
+  Diameters (Pinion):  Øpitch=4.80  Øtip=5.60  weight=0.42 g
+  Diameters (Wheel ):  Øpitch=11.60  Øtip=12.40  weight=2.08 g
+  Center distance:  8.31 mm
+  Contact ratio:    1.421
+  Hertz stress:     1511.3 MPa
+  Specific sliding: pinion=0.316  wheel=0.944
+  Profile shift:    x1=0.2981  x2=0.0000
+
+── Stage 3 (ratio 2.8750) ──────────────────────────────
+
+Parameters
+Gear      Depth (mm)    Teeth    Module (mm)    Pressure °    Root fillet (mm)    Tip relief (mm)    Backlash (mm)  Dedendum       Addendum
+------  ------------  -------  -------------  ------------  ------------------  -----------------  ---------------  -------------  ------------
+Pinion           3.3       16            0.4         20.32               0.191              0.008            0.016  1.1858 (1.25)  1.0639 (1.0)
+Wheel            3.3       46            0.4         20.32               0.169              0.008            0.016  1.2500 (1.25)  0.9998 (1.0)
+
+Metrics
+  Materials:        Hardened Steel / Hardened Steel
+  Torque in:        0.473 Nm
+  Efficiency:       98.68%
+  Lewis stress (Pinion): 380 / 380 MPa (100%)
+  Lewis stress (Wheel ): 280 / 380 MPa (74%)
+  Diameters (Pinion):  Øpitch=6.40  Øtip=7.20  weight=1.05 g
+  Diameters (Wheel ):  Øpitch=18.40  Øtip=19.20  weight=7.50 g
+  Center distance:  12.43 mm
+  Contact ratio:    1.596
+  Hertz stress:     1458.0 MPa
+  Specific sliding: pinion=-0.130  wheel=0.966
+  Profile shift:    x1=0.0642  x2=0.0000
+
+── Stage 4 (ratio 2.9167) ──────────────────────────────
+
+Parameters
+Gear      Depth (mm)    Teeth    Module (mm)    Pressure °    Root fillet (mm)    Tip relief (mm)    Backlash (mm)  Dedendum       Addendum
+------  ------------  -------  -------------  ------------  ------------------  -----------------  ---------------  -------------  ------------
+Pinion          3.81       12            0.8         21.81               0.363              0.016            0.032  0.9519 (1.25)  1.2918 (1.0)
+Wheel           3.81       35            0.8         21.81               0.347              0.016            0.032  1.2500 (1.25)  0.9937 (1.0)
+
+Metrics
+  Materials:        Hardened Steel / Alloy Steel
+  Torque in:        1.361 Nm
+  Efficiency:       98.07%
+  Lewis stress (Pinion): 380 / 380 MPa (100%)
+  Lewis stress (Wheel ): 249 / 250 MPa (100%)
+  Diameters (Pinion):  Øpitch=9.60  Øtip=11.20  weight=2.94 g
+  Diameters (Wheel ):  Øpitch=28.00  Øtip=29.60  weight=20.56 g
+  Center distance:  19.03 mm
+  Contact ratio:    1.439
+  Hertz stress:     1480.5 MPa
+  Specific sliding: pinion=0.093  wheel=0.957
+  Profile shift:    x1=0.2981  x2=0.0000
+
+── Spring ────────────────────────────────────────────
+  Max torque:       3.893 Nm
+  Max angle:        60.00°
+  Outer diameter:   24.77 mm
+  Inner diameter:   14.86 mm
+  Thickness:        7.48 mm
+  Spring constant:  3.7173 Nm/rad
+  Max shear strain: 1.7333
+  Rubber weight:    2.07 g
+  Material:         Natural Rubber 50A
+  Safety factor:    1.50
+
+Overall efficiency: 93.70%

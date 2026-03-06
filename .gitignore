@@ -30,5 +30,6 @@ htmlcov/
 # mypy
 .mypy_cache/
 
-# Generated solutions output
-solutions/
+# Generated solutions output (keep example solutions for review)
+config/solutions/*
+!config/solutions/leggy_config/

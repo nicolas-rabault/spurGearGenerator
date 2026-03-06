@@ -1,0 +1,382 @@
+================================================================================
+                     PRODUCTION SPECIFICATION — SPUR GEARS                      
+                         Solution #1 — 4-stage gearbox                          
+================================================================================
+
+  Total ratio:      44.1056:1 (error -1.99%)
+  Stages:           4
+  Parts:            5
+  Gear system:      ISO 53 (standard basic rack, ha* = 1.0, hf* = 1.25)
+  Pressure angle:   20° (reference)
+
+────────────────────────────────────────────────────────────────────────────────
+  BILL OF MATERIALS
+────────────────────────────────────────────────────────────────────────────────
+    Part 1: Input shaft — z=17 m=0.2
+    Part 2: Shaft 2 — z=37 m=0.2 + z=12 m=0.4 [compound]
+    Part 3: Shaft 3 — z=29 m=0.4 + z=16 m=0.4 [compound]
+    Part 4: Shaft 4 — z=46 m=0.4 + z=12 m=0.8 [compound]
+    Part 5: Output shaft — z=35 m=0.8
+
+────────────────────────────────────────────────────────────────────────────────
+  PART 1 — Input shaft  (1 gear)
+────────────────────────────────────────────────────────────────────────────────
+
+  MATERIAL & TREATMENT
+    Material:                   16MnCr5, 20MnCr5, or equivalent
+    Heat treatment:             Case carburised, 58–62 HRC
+    Case depth:                 0.18–0.34 mm (effective)
+
+  MANUFACTURING
+    Quality grade:              ISO 1328 grade 6 (DIN 6)
+    Method:                     Hobbed + ground
+    Surface finish:             Ra ≤ 0.8 μm (flanks)
+
+    GEAR A — Stage 1 pinion  (meshes with Part 2)
+      Module:                   0.2 mm
+      Teeth:                    17
+      Profile shift:            x = +0.0057
+
+      Diameters
+        Reference (pitch) Ø:    3.400 mm
+        Tip Ø:                  3.802 mm
+        Root Ø:                 2.902 mm
+        Base Ø:                 3.195 mm
+
+      Face width:               2.307 mm
+
+      Tooth profile
+        Tooth thickness (ref):  0.3150 mm
+        Tooth thickness (cut):  0.3110 mm
+        Backlash allowance:     0.0040 mm (per gear, symmetric)
+        Root fillet radius:     ρ = 0.097 mm
+        Tip relief:             0.004 mm
+        Addendum coefficient:   1.0057
+        Dedendum coefficient:   1.2443
+
+      Tolerances (ISO 1328-1, grade 6 — indicative)
+        Single pitch deviation: fpt ≤ 5.8 μm
+        Total pitch deviation:  Fp  ≤ 16.6 μm
+        Profile total:          Fα  ≤ 4.0 μm
+        Helix total:            Fβ  ≤ 5.5 μm
+        Radial runout:          Fr  ≤ 8.9 μm
+
+────────────────────────────────────────────────────────────────────────────────
+  PART 2 — Shaft 2  (2 gears (compound))
+────────────────────────────────────────────────────────────────────────────────
+
+  MATERIAL & TREATMENT
+    Material:                   16MnCr5, 20MnCr5, or equivalent
+    Heat treatment:             Case carburised, 58–62 HRC
+    Case depth:                 0.21–0.38 mm (effective)
+
+  MANUFACTURING
+    Quality grade:              ISO 1328 grade 6 (DIN 6)
+    Method:                     Hobbed + ground
+    Surface finish:             Ra ≤ 0.8 μm (flanks)
+
+    GEAR A — Stage 1 wheel  (meshes with Part 1)
+      Module:                   0.2 mm
+      Teeth:                    37
+      Profile shift:            x = +0.0000
+
+      Diameters
+        Reference (pitch) Ø:    7.400 mm
+        Tip Ø:                  7.800 mm
+        Root Ø:                 6.900 mm
+        Base Ø:                 6.954 mm
+
+      Face width:               2.307 mm
+
+      Tooth profile
+        Tooth thickness (ref):  0.3142 mm
+        Tooth thickness (cut):  0.3102 mm
+        Backlash allowance:     0.0040 mm (per gear, symmetric)
+        Root fillet radius:     ρ = 0.086 mm
+        Tip relief:             0.004 mm
+        Addendum coefficient:   1.0000
+        Dedendum coefficient:   1.2500
+
+      Tolerances (ISO 1328-1, grade 6 — indicative)
+        Single pitch deviation: fpt ≤ 5.8 μm
+        Total pitch deviation:  Fp  ≤ 24.6 μm
+        Profile total:          Fα  ≤ 4.0 μm
+        Helix total:            Fβ  ≤ 5.5 μm
+        Radial runout:          Fr  ≤ 9.8 μm
+
+    GEAR B — Stage 2 pinion  (meshes with Part 3)
+      Module:                   0.4 mm
+      Teeth:                    12
+      Profile shift:            x = +0.2981
+
+      Diameters
+        Reference (pitch) Ø:    4.800 mm
+        Tip Ø:                  5.833 mm
+        Root Ø:                 4.038 mm
+        Base Ø:                 4.511 mm
+
+      Face width:               2.192 mm
+
+      Tooth profile
+        Tooth thickness (ref):  0.7151 mm
+        Tooth thickness (cut):  0.7071 mm
+        Backlash allowance:     0.0080 mm (per gear, symmetric)
+        Root fillet radius:     ρ = 0.181 mm
+        Tip relief:             0.008 mm
+        Addendum coefficient:   1.2910
+        Dedendum coefficient:   0.9519
+
+      Tolerances (ISO 1328-1, grade 6 — indicative)
+        Single pitch deviation: fpt ≤ 5.8 μm
+        Total pitch deviation:  Fp  ≤ 14.2 μm
+        Profile total:          Fα  ≤ 4.2 μm
+        Helix total:            Fβ  ≤ 5.5 μm
+        Radial runout:          Fr  ≤ 9.2 μm
+
+  ASSEMBLY
+    Each gear is manufactured independently
+    Assembled by interference (press) fit onto shared shaft
+
+────────────────────────────────────────────────────────────────────────────────
+  PART 3 — Shaft 3  (2 gears (compound))
+────────────────────────────────────────────────────────────────────────────────
+
+  MATERIAL & TREATMENT
+    Material:                   16MnCr5, 20MnCr5, or equivalent
+    Heat treatment:             Case carburised, 58–62 HRC
+    Case depth:                 0.21–0.38 mm (effective)
+
+  MANUFACTURING
+    Quality grade:              ISO 1328 grade 6 (DIN 6)
+    Method:                     Hobbed + ground
+    Surface finish:             Ra ≤ 0.8 μm (flanks)
+
+    GEAR A — Stage 2 wheel  (meshes with Part 2)
+      Module:                   0.4 mm
+      Teeth:                    29
+      Profile shift:            x = +0.0000
+
+      Diameters
+        Reference (pitch) Ø:    11.600 mm
+        Tip Ø:                  12.394 mm
+        Root Ø:                 10.600 mm
+        Base Ø:                 10.900 mm
+
+      Face width:               2.192 mm
+
+      Tooth profile
+        Tooth thickness (ref):  0.6283 mm
+        Tooth thickness (cut):  0.6203 mm
+        Backlash allowance:     0.0080 mm (per gear, symmetric)
+        Root fillet radius:     ρ = 0.178 mm
+        Tip relief:             0.008 mm
+        Addendum coefficient:   0.9929
+        Dedendum coefficient:   1.2500
+
+      Tolerances (ISO 1328-1, grade 6 — indicative)
+        Single pitch deviation: fpt ≤ 5.9 μm
+        Total pitch deviation:  Fp  ≤ 22.1 μm
+        Profile total:          Fα  ≤ 4.2 μm
+        Helix total:            Fβ  ≤ 5.5 μm
+        Radial runout:          Fr  ≤ 10.4 μm
+
+    GEAR B — Stage 3 pinion  (meshes with Part 4)
+      Module:                   0.4 mm
+      Teeth:                    16
+      Profile shift:            x = +0.0642
+
+      Diameters
+        Reference (pitch) Ø:    6.400 mm
+        Tip Ø:                  7.251 mm
+        Root Ø:                 5.451 mm
+        Base Ø:                 6.014 mm
+
+      Face width:               3.299 mm
+
+      Tooth profile
+        Tooth thickness (ref):  0.6470 mm
+        Tooth thickness (cut):  0.6390 mm
+        Backlash allowance:     0.0080 mm (per gear, symmetric)
+        Root fillet radius:     ρ = 0.191 mm
+        Tip relief:             0.008 mm
+        Addendum coefficient:   1.0639
+        Dedendum coefficient:   1.1858
+
+      Tolerances (ISO 1328-1, grade 6 — indicative)
+        Single pitch deviation: fpt ≤ 5.9 μm
+        Total pitch deviation:  Fp  ≤ 16.4 μm
+        Profile total:          Fα  ≤ 4.2 μm
+        Helix total:            Fβ  ≤ 5.8 μm
+        Radial runout:          Fr  ≤ 9.6 μm
+
+  ASSEMBLY
+    Each gear is manufactured independently
+    Assembled by interference (press) fit onto shared shaft
+
+────────────────────────────────────────────────────────────────────────────────
+  PART 4 — Shaft 4  (2 gears (compound))
+────────────────────────────────────────────────────────────────────────────────
+
+  MATERIAL & TREATMENT
+    Material:                   16MnCr5, 20MnCr5, or equivalent
+    Heat treatment:             Case carburised, 58–62 HRC
+    Case depth:                 0.27–0.46 mm (effective)
+
+  MANUFACTURING
+    Quality grade:              ISO 1328 grade 6 (DIN 6)
+    Method:                     Hobbed + ground
+    Surface finish:             Ra ≤ 0.8 μm (flanks)
+
+    GEAR A — Stage 3 wheel  (meshes with Part 3)
+      Module:                   0.4 mm
+      Teeth:                    46
+      Profile shift:            x = +0.0000
+
+      Diameters
+        Reference (pitch) Ø:    18.400 mm
+        Tip Ø:                  19.200 mm
+        Root Ø:                 17.400 mm
+        Base Ø:                 17.290 mm
+
+      Face width:               3.299 mm
+
+      Tooth profile
+        Tooth thickness (ref):  0.6283 mm
+        Tooth thickness (cut):  0.6203 mm
+        Backlash allowance:     0.0080 mm (per gear, symmetric)
+        Root fillet radius:     ρ = 0.169 mm
+        Tip relief:             0.008 mm
+        Addendum coefficient:   0.9998
+        Dedendum coefficient:   1.2500
+
+      Tolerances (ISO 1328-1, grade 6 — indicative)
+        Single pitch deviation: fpt ≤ 5.9 μm
+        Total pitch deviation:  Fp  ≤ 28.0 μm
+        Profile total:          Fα  ≤ 4.2 μm
+        Helix total:            Fβ  ≤ 5.8 μm
+        Radial runout:          Fr  ≤ 11.3 μm
+
+    GEAR B — Stage 4 pinion  (meshes with Part 5)
+      Module:                   0.8 mm
+      Teeth:                    12
+      Profile shift:            x = +0.2981
+
+      Diameters
+        Reference (pitch) Ø:    9.600 mm
+        Tip Ø:                  11.667 mm
+        Root Ø:                 8.077 mm
+        Base Ø:                 9.021 mm
+
+      Face width:               3.807 mm
+
+      Tooth profile
+        Tooth thickness (ref):  1.4303 mm
+        Tooth thickness (cut):  1.4143 mm
+        Backlash allowance:     0.0160 mm (per gear, symmetric)
+        Root fillet radius:     ρ = 0.363 mm
+        Tip relief:             0.016 mm
+        Addendum coefficient:   1.2918
+        Dedendum coefficient:   0.9519
+
+      Tolerances (ISO 1328-1, grade 6 — indicative)
+        Single pitch deviation: fpt ≤ 6.0 μm
+        Total pitch deviation:  Fp  ≤ 14.6 μm
+        Profile total:          Fα  ≤ 4.4 μm
+        Helix total:            Fβ  ≤ 5.9 μm
+        Radial runout:          Fr  ≤ 10.1 μm
+
+  ASSEMBLY
+    Each gear is manufactured independently
+    Assembled by interference (press) fit onto shared shaft
+
+────────────────────────────────────────────────────────────────────────────────
+  PART 5 — Output shaft  (1 gear)
+────────────────────────────────────────────────────────────────────────────────
+
+  MATERIAL & TREATMENT
+    Material:                   42CrMo4 (AISI 4140) or equivalent
+    Heat treatment:             Quench & temper, 28–32 HRC
+
+  MANUFACTURING
+    Quality grade:              ISO 1328 grade 6 (DIN 6)
+    Method:                     Hobbed + ground
+    Surface finish:             Ra ≤ 0.8 μm (flanks)
+
+    GEAR A — Stage 4 wheel  (meshes with Part 4)
+      Module:                   0.8 mm
+      Teeth:                    35
+      Profile shift:            x = +0.0000
+
+      Diameters
+        Reference (pitch) Ø:    28.000 mm
+        Tip Ø:                  29.590 mm
+        Root Ø:                 26.000 mm
+        Base Ø:                 26.311 mm
+
+      Face width:               3.807 mm
+
+      Tooth profile
+        Tooth thickness (ref):  1.2566 mm
+        Tooth thickness (cut):  1.2406 mm
+        Backlash allowance:     0.0160 mm (per gear, symmetric)
+        Root fillet radius:     ρ = 0.347 mm
+        Tip relief:             0.016 mm
+        Addendum coefficient:   0.9937
+        Dedendum coefficient:   1.2500
+
+      Tolerances (ISO 1328-1, grade 6 — indicative)
+        Single pitch deviation: fpt ≤ 6.1 μm
+        Total pitch deviation:  Fp  ≤ 25.3 μm
+        Profile total:          Fα  ≤ 4.4 μm
+        Helix total:            Fβ  ≤ 5.9 μm
+        Radial runout:          Fr  ≤ 12.3 μm
+
+────────────────────────────────────────────────────────────────────────────────
+  MESH SPECIFICATIONS
+────────────────────────────────────────────────────────────────────────────────
+
+  MESH 1 — Stage 1  (Part 1 ↔ Part 2, ratio 2.1765:1)
+    Centre distance:            5.401 mm
+    Operating pressure angle:   20.03°
+    Contact ratio:              1.604
+    Backlash (tooth thinning):  0.008 mm
+    Hertz contact stress:       1499.4 MPa
+    Specific sliding:           pinion = 0.205, wheel = 0.953
+
+  MESH 2 — Stage 2  (Part 2 ↔ Part 3, ratio 2.4167:1)
+    Centre distance:            8.314 mm
+    Operating pressure angle:   22.05°
+    Contact ratio:              1.421
+    Backlash (tooth thinning):  0.016 mm
+    Hertz contact stress:       1511.3 MPa
+    Specific sliding:           pinion = 0.316, wheel = 0.944
+
+  MESH 3 — Stage 3  (Part 3 ↔ Part 4, ratio 2.8750:1)
+    Centre distance:            12.425 mm
+    Operating pressure angle:   20.32°
+    Contact ratio:              1.596
+    Backlash (tooth thinning):  0.016 mm
+    Hertz contact stress:       1458.0 MPa
+    Specific sliding:           pinion = -0.130, wheel = 0.966
+
+  MESH 4 — Stage 4  (Part 4 ↔ Part 5, ratio 2.9167:1)
+    Centre distance:            19.028 mm
+    Operating pressure angle:   21.81°
+    Contact ratio:              1.439
+    Backlash (tooth thinning):  0.032 mm
+    Hertz contact stress:       1480.5 MPa
+    Specific sliding:           pinion = 0.093, wheel = 0.957
+
+────────────────────────────────────────────────────────────────────────────────
+  NOTES
+────────────────────────────────────────────────────────────────────────────────
+  - All dimensions in millimetres unless stated otherwise
+  - Tolerances are indicative (ISO 1328-1:2013); verify against full standard
+  - Gear tooth system: ISO 53 standard basic rack profile
+  - Rack tip radius coefficient: ρ_a0* = 0.38
+  - Backlash achieved by symmetric tooth thinning
+  - Profile shift optimised to balance specific sliding between pinion and wheel
+  - Tip relief applied to reduce mesh impact at entry/exit
+  - Compound parts: both gears share the same shaft and material
+
+  Generated by spurGearGenerator
