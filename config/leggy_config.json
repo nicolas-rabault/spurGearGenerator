@@ -4,5 +4,5 @@
   "input_torque": 0.09,
   "max_teeth_per_gear": 50,
   "axis_margin": 0.5,
-  "min_output_root_diameter": 25.0
+  "min_output_root_diameter": 27.0
 }
